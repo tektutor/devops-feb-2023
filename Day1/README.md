@@ -208,3 +208,38 @@ cd Day1/hello
 mvn clean test
 ```
 
+## Lab - Getting plugin goal help
+```
+cd ~/devops-feb-2023
+git pull
+
+cd Day1/hello
+mvn help:describe -Dplugin=org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M8 -Ddetail > out.yml 2>&1
+cat out.yml
+```
+
+## Lab - Configuring Maven not fail the build when test cases fail
+
+You need to configure the maven-surefire-plugin in the pom.xml. You need to add the below build section to your pom.xml within the project root tag.
+```
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.0.0-M8</version>
+      <configuration>
+        <testFailureIgnore>true</testFailureIgnore>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+```
+
+```
+cd ~/devops-feb-2023
+git pull
+
+cd Day1/hello
+mvn test
+```
