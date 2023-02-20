@@ -26,7 +26,7 @@ ls
 
 ## What is Maven
 - a build tool used predominantly by Java projects
-- it is a language agnostnic(independent) build tool
+- it is a language agnostic(independent) build tool
 - it was developed by Apache Foundation as an alternate to Apache Ant build tool
 - it is an opensource tool
 - it has inbuilt dependency management
@@ -218,7 +218,7 @@ mvn help:describe -Dplugin=org.apache.maven.plugins:maven-surefire-plugin:3.0.0-
 cat out.yml
 ```
 
-## Lab - Configuring Maven not fail the build when test cases fail
+## Lab - Configuring Maven not to fail the build when test cases fail
 
 You need to configure the maven-surefire-plugin in the pom.xml. You need to add the below build section to your pom.xml within the project root tag.
 ```
@@ -235,6 +235,8 @@ You need to configure the maven-surefire-plugin in the pom.xml. You need to add 
   </plugins>
 </build>
 ```
+
+Now you may try running the test cases, the expectation is even though the test case(s) fail, the build will not fail.
 
 ```
 cd ~/devops-feb-2023
