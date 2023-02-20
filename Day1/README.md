@@ -236,6 +236,8 @@ You need to configure the maven-surefire-plugin in the pom.xml. You need to add 
 </build>
 ```
 
+Now you may try running the test cases, the expectation is even though the test case(s) fail, the build will not fail.
+
 ```
 cd ~/devops-feb-2023
 git pull
