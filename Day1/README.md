@@ -61,3 +61,10 @@ ls
     - For example, tektutor.org is my startup domain, the reverse domain would be org.tektutor
     - this is the standard recommended for groupId
     - the naming convention is similar to the convention followed in Java package naming convention
+  - artifactId
+    - name of the jar,war,zip, ear file etc
+  - version ( 1.2.3 )
+    - major
+    - minor
+    - incremental version
+
