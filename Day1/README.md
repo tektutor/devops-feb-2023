@@ -68,3 +68,53 @@ ls
     - minor
     - incremental version
 
+
+## What is Maven Life Cycle
+- Maven Plugin has one or more goals, each goal supports one functionality
+- supports 3 built-in life cycles
+  1. default
+  2. clean
+  3. site
+- Maven Life Cycle has one or more phases
+- Each Phase can invoke one or more Plugin goals
+- it is a sequence of commands, executed from top to bottom order
+
+
+## Lab - Listing the Maven default life-cycle phases
+```
+cd ~/devops-feb-2023
+git pull
+
+cd Day1/hello
+mvn help:describe -Dcmd=compile
+```
+
+## Lab - Listing the Maven clean life-cycle phases
+```
+cd ~/devops-feb-2023
+git pull
+
+cd Day1/hello
+mvn help:describe -Dcmd=clean
+```
+
+## Lab - Listing the Maven site life-cycle phases
+```
+cd ~/devops-feb-2023
+git pull
+
+cd Day1/hello
+mvn help:describe -Dcmd=site
+```
+
+## Lab - Printing the Maven effective pom
+```
+cd ~/devops-feb-2023
+git pull
+
+cd Day1/hello
+mvn help:effective-pom
+```
+
+
+
