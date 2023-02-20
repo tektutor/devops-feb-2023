@@ -26,7 +26,7 @@ ls
 
 ## What is Maven
 - a build tool used predominantly by Java projects
-- it is a language agnostnic(independent) build tool
+- it is a language agnostic(independent) build tool
 - it was developed by Apache Foundation as an alternate to Apache Ant build tool
 - it is an opensource tool
 - it has inbuilt dependency management
