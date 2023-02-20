@@ -20,7 +20,8 @@ public class AppTest {
 		App hello = new App();
 
 		double actualResponse = hello.addNumbers( 10.5, 11.5 );
-		double expectedResponse = 22.0;
+		//double expectedResponse = 22.0;
+		double expectedResponse = 122.0;
 
 		assertEquals ( expectedResponse, actualResponse, 0.001 );
 	}
