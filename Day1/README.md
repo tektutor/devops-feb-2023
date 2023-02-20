@@ -79,6 +79,80 @@ ls
 - Each Phase can invoke one or more Plugin goals
 - it is a sequence of commands, executed from top to bottom order
 
+## Optional Lab - In case you prefer hand-coding yourself
+```
+mkdir -p ~/training/day1
+
+mkdir hello
+
+cd hello
+touch pom.xml
+mkdir -p src/main/java/org/tektutor
+mkdir -p src/test/java/org/tektutor
+touch src/main/java/org/tektutor/App.java
+touch src/test/java/org/tektutor/AppTest.java
+
+tree
+```
+
+Then you may edit the pom.xml and type the below code
+```
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>org.tektutor</groupId>
+  <artifactId>hello</artifactId>
+  <version>1.0.0</version>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+    </dependency>
+  </dependencies>
+</project>
+```
+
+Then you may edit the src/main/java/org/tektutor/App.java and type the below code
+
+```
+package org.tektutor;
+
+public class App {
+  public String sayHello() {
+    return "Hello Java - Maven project!";
+  }
+  
+  public static void main ( String[] args ) {
+    App hello = new App();
+    
+    System.out.println ( hello.sayHello() );
+  }
+}
+```
+
+Finally, you may edit the src/test/java/org/tektutor/AppTest.java and type the below code
+```
+package org.tektutor;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class AppTest {
+  
+  @Test
+  public void testSayHello() {
+    App hello = new App();
+    
+    String expectedResponse = "Hello Java - Maven project!";
+    String actualResponse = hello.sayHello();
+    
+    assertEquals ( expectedResponse, actualResponse );
+  }
+}
+```
+
 
 ## Lab - Listing the Maven default life-cycle phases
 ```
