@@ -116,5 +116,21 @@ cd Day1/hello
 mvn help:effective-pom
 ```
 
+## Lab - Compiling the hello java project using Maven
+```
+cd ~/devops-feb-2023
+git pull
 
+cd Day1/hello
+mvn compile
+```
+
+## Lab - Running automated test cases as part of Maven build
+```
+cd ~/devops-feb-2023
+git pull
+
+cd Day1/hello
+mvn clean test
+```
 
