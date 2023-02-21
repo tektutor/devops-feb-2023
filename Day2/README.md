@@ -405,3 +405,21 @@ CONTAINER ID   IMAGE                                            COMMAND         
 6c569adc718c   hello-world                                      "/hello"                 2 minutes ago   Exited (0) 2 minutes ago                                                                   frosty_hermann
 0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 hours ago     Up 4 hours                 0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
+
+## Lab - Renaming a container
+```
+docker rename <current-name> <new-name>
+```
+
+Expected output
+<pre>
+docker rename frosty_hermann hello
+
+ jegan@tektutor  ~  docker ps
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED       STATUS       PORTS                                                           NAMES
+0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 hours ago   Up 4 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+ jegan@tektutor  ~  docker ps -a
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS                     PORTS                                                           NAMES
+6c569adc718c   hello-world                                      "/hello"                 5 minutes ago   Exited (0) 5 minutes ago                                                                   hello
+0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 hours ago     Up 4 hours                 0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+</pre>
