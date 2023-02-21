@@ -48,3 +48,35 @@ password - password
 </pre>
 
 In case it prompts to change the password, maybe change it to 'Admin@123' as I would use this password in my code.
+
+You need to find your maven settings.xml file and edit the file.
+```
+mvn --version
+```
+
+In my case the path is
+<pre>
+/home/jegan/Downloads/apache-maven-3.9.0/conf/settings.xml
+</pre>
+
+You need to modify the settings.xml as shown below
+````
+ <servers>
+    <server>
+      <id>artifactory</id>
+      <username>admin</username>
+      <password>Admin@123</password>
+    </server>
+</servers>
+```
+In the above file, the servers tag already exists at line number 112, you need to add the server tag entry just below the servers tag entry as shown above.  The rest of the file content should be retained as it is.
+
+You may now go to your maven project
+```
+cd ~/devops-feb-2023
+git pull origin main
+
+cd Day2/multi-module-project
+mvn deploy
+```
+
