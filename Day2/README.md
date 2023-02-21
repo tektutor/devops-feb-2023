@@ -149,10 +149,73 @@ Processors
  
 
 ## What is Application Virtualization?
+- Container Technology aka Application Virtualization Technology
+- each Container represents only single application process
+- Container though it supports many OS like features, it is still an application process not a OS
+- Container's however has
+  - a separate Network stack ( 7 OSI Layers )
+  - a virtual network card
+  - an IP address
+  - file system
+  - ports ( 0 to 65535 )
+- each containers runs in its own namespace
+- containers don't get their own dedicated hardware resource, all the containers and normal applications running on the HOST OS shares the hardware resources available to the HOST OS. 
+- containers depends on the OS kernel on the HOST OS
 
 ## Hypervisor vs Container Technology
+- Hypervisor represents a fully function OS, while container represents one single application
+- Within a Virtual Machine, you could install Container software and run many containers
+- Hence, container's will never be able to replace Virtual Machines or Operating Systems
+- Containers depends on the HOST OS Kernel for OS level functionalities
 
 ## Docker Overview
+- is one of the popular Container Software out there
+- comes in 2 flavours
+  - Community Edition (OpenSource ) - Docker CE
+  - Enterprise Edition (Paid) - Docker EE
+- follows client/server architecture
+  client tool - docker
+  server tool - dockerd ( d stands for daemon - runs as a service in the background )
+- if client and server are running on the same system, they use unix socket for communication
+- if client and server are running on different system, they could use REST API for communication
 
 ## Docker Alternatives
+- Podman
+- LXC
 
+## What is Container Runtime ?
+- are not used by end-users directly
+- This software know how many manage containers
+  - create a container using Container Image
+  - start the container
+  - stop the container
+  - restart
+  - kill/abort
+  - delete
+  - rename
+- Examples
+  - runC
+  - CRI-O
+
+## Tools that manages Container Images
+- Kaniko
+- Buildah
+
+## What is a Container Engine ?
+- high-level software used by End-users
+- provides user-friendly commands to manage containers and images
+- depends on Container Runtime to manage Containers
+- depends on other tools to manage Container Images
+- Examples
+  - Docker depends on containerd which in turn depends on runC container Runtime
+  - Podman
+  
+## Linux Kernel Feature that enables Container Technology
+- Namespace
+  - to isolate one container from the other containers
+- Control Groups (CGroups)
+  - are used to apply resource quota restrictions to containers
+  - For example,
+    - you could restrict how much CPU a container can use at the max ( 25%, 50% )
+    - you could restrict how much RAM a container can use at the max
+    - you could restrict how much Storage a container can use at the max
