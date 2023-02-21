@@ -338,4 +338,9 @@ Server:
  Live Restore Enabled: false
 </pre>
 
+## Lab - Listing Docker Images on your Docker Local Registry
+```
+docker images
+```
+
 
