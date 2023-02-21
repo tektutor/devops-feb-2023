@@ -259,3 +259,73 @@ Expected output
 Docker version 23.0.1, build a5ee5b1
 </pre>
 
+## Lab - Finding more information about your docker installation
+```
+docker info
+```
+
+Expected output
+<pre>
+ jegan@tektutor  ~  docker info
+Client:
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.10.2
+    Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v2.16.0
+    Path:     /usr/libexec/docker/cli-plugins/docker-compose
+  scan: Docker Scan (Docker Inc.)
+    Version:  v0.23.0
+    Path:     /usr/libexec/docker/cli-plugins/docker-scan
+
+Server:
+ Containers: 1
+  Running: 1
+  Paused: 0
+  Stopped: 0
+ Images: 1
+ Server Version: 23.0.1
+ Storage Driver: overlay2
+  Backing Filesystem: btrfs
+  Supports d_type: true
+  Using metacopy: false
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 2456e983eb9e37e47538f59ea18f2043c9a73640
+ runc version: v1.1.4-0-g5fd4c4d
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.0.7-301.fc37.x86_64
+ Operating System: Fedora Linux 37 (Workstation Edition)
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 48
+ Total Memory: 125.5GiB
+ Name: tektutor.org
+ ID: e59f4066-3c58-41ca-aec6-0a6f04e4a4ca
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Registry: https://index.docker.io/v1/
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+</pre>
+
