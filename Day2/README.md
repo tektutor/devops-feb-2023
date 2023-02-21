@@ -1,6 +1,8 @@
 # Day2
 
 ## Creating JFrog Artifactory as a Docker Container
+For detailed instructions, you may refer the official documentation here https://www.jfrog.com/confluence/display/RTF6X/Installing+with+Docker
+
 ```
 docker pull docker.bintray.io/jfrog/artifactory-oss:latest
 docker run --name artifactory --hostname artifactory -d -p 8081-8082:8081-8082 docker.bintray.io/jfrog/artifactory-oss:latest
