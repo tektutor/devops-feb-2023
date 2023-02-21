@@ -4,6 +4,7 @@
 ```
 docker pull docker.bintray.io/jfrog/artifactory-oss:latest
 docker run --name artifactory --hostname artifactory -d -p 8081-8082:8081-8082 docker.bintray.io/jfrog/artifactory-oss:latest
+docker ps
 ```
 
 Expected output
@@ -25,11 +26,11 @@ Digest: sha256:570624299b92ab43ec70a0a38617ed5e8452e23f9aeaeb8f9c32b9d9c1e35418
 Status: Downloaded newer image for docker.bintray.io/jfrog/artifactory-oss:latest
 docker.bintray.io/jfrog/artifactory-oss:latest
 
- jegan@tektutor  ~/devops-feb-2023/Day2/multi-module-project   main  docker run --name artifactory --hostname artifactory -d -p 8081-8082:8081-8082 docker.bintray.io/jfrog/artifactory-oss:latest
+ jegan@tektutor  ~/devops-feb-2023/Day2/multi-module-project   main  <b>docker run --name artifactory --hostname artifactory -d -p 8081-8082:8081-8082 docker.bintray.io/jfrog/artifactory-oss:latest</b>
 
 0c14e8de60da62819561aedbcc12d2b09cb18e3c0fd67bbf78a3deebce4be9af
 
- jegan@tektutor  ~/devops-feb-2023/Day2/multi-module-project   main  docker ps
+ jegan@tektutor  ~/devops-feb-2023/Day2/multi-module-project   main  <b>docker ps</b>
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS         PORTS                                                           NAMES
 0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 seconds ago   Up 3 seconds   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
