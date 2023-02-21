@@ -765,3 +765,20 @@ PING 172.17.0.2 (172.17.0.2) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2032ms
 rtt min/avg/max/mdev = 0.059/0.082/0.122/0.028 ms
 </pre>
+
+## Lab - Building a custom docker image
+```
+cd ~/devops-feb-2023
+git pull
+
+cd Day2/CustomDockerImage
+docker build -t tektutor/ubuntu .
+docker images
+docker run -d --name c1 --hostname c1 tektutor/ubuntu /bin/bash
+docker ps
+docker exec -it c1 bash
+vim
+tree
+ifconfig
+ping 
+```
