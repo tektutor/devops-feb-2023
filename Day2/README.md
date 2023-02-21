@@ -774,7 +774,7 @@ git pull
 cd Day2/CustomDockerImage
 docker build -t tektutor/ubuntu .
 docker images
-docker run -d --name c1 --hostname c1 tektutor/ubuntu /bin/bash
+docker run -dit --name c1 --hostname c1 tektutor/ubuntu /bin/bash
 docker ps
 docker exec -it c1 bash
 vim
