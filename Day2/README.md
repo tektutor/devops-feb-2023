@@ -390,3 +390,18 @@ Expected output
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED       STATUS       PORTS                                                           NAMES
 0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 hours ago   Up 4 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
+
+
+## Lab - Listing all containers irrespective of their running status
+```
+docker ps -a
+```
+
+Expected output
+<pre>
+docker ps -a
+
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS                     PORTS                                                           NAMES
+6c569adc718c   hello-world                                      "/hello"                 2 minutes ago   Exited (0) 2 minutes ago                                                                   frosty_hermann
+0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 hours ago     Up 4 hours                 0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+</pre>
