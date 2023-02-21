@@ -535,3 +535,233 @@ CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS         PORTS
 7a0a3f8b9e0a   ubuntu:16.04   "/bin/bash"   2 minutes ago   Up 3 seconds             ubuntu2
 ab64f512f5e8   ubuntu:16.04   "/bin/bash"   3 minutes ago   Up 4 seconds             ubuntu1
 </pre>
+
+## Lab - Finding the IP address of a container
+```
+docker inspect ubuntu1
+docker inspect ubuntu1 | grep IPA
+docker inspect {{.NetworkSettings.IPAddress}} ubuntu1
+```
+
+Expected output
+<pre>
+ jegan@tektutor  ~/devops-feb-2023/Day2/container-with-gui  ⇅ main  docker ps
+CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS         PORTS     NAMES
+9cfa1cd2e345   ubuntu:16.04   "/bin/bash"   7 minutes ago   Up 5 minutes             ubuntu3
+7a0a3f8b9e0a   ubuntu:16.04   "/bin/bash"   8 minutes ago   Up 5 minutes             ubuntu2
+ab64f512f5e8   ubuntu:16.04   "/bin/bash"   8 minutes ago   Up 5 minutes             ubuntu1
+ jegan@tektutor  ~/devops-feb-2023/Day2/container-with-gui  ⇅ main  docker inspect ubuntu1
+[
+    {
+        "Id": "ab64f512f5e86f70f206a9e489c8749598fe1d57be967816346ad4eb5c995d8f",
+        "Created": "2023-02-21T09:40:35.581916928Z",
+        "Path": "/bin/bash",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 73993,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2023-02-21T09:43:39.186027832Z",
+            "FinishedAt": "2023-02-21T09:43:16.890883046Z"
+        },
+        "Image": "sha256:b6f50765242581c887ff1acc2511fa2d885c52d8fb3ac8c4bba131fd86567f2e",
+        "ResolvConfPath": "/var/lib/docker/containers/ab64f512f5e86f70f206a9e489c8749598fe1d57be967816346ad4eb5c995d8f/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/ab64f512f5e86f70f206a9e489c8749598fe1d57be967816346ad4eb5c995d8f/hostname",
+        "HostsPath": "/var/lib/docker/containers/ab64f512f5e86f70f206a9e489c8749598fe1d57be967816346ad4eb5c995d8f/hosts",
+        "LogPath": "/var/lib/docker/containers/ab64f512f5e86f70f206a9e489c8749598fe1d57be967816346ad4eb5c995d8f/ab64f512f5e86f70f206a9e489c8749598fe1d57be967816346ad4eb5c995d8f-json.log",
+        "Name": "/ubuntu1",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                32,
+                136
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/77b81ae609f70a84ca01efaccb4720005c0bc65722cf6a8dd52b2ba79a02f903-init/diff:/var/lib/docker/overlay2/43bb6e164b5f269dacbc868348c858b3d6e903e2a67f95ca2f3936e9d1492626/diff:/var/lib/docker/overlay2/1fb312a45e123dfb0c4098a4e1747db2b77637861fd13609319149cdf3d85800/diff:/var/lib/docker/overlay2/942ee114bb00a7b1ec57ada39f931a8d3efa6029644f3df334aa9d921c4e9068/diff:/var/lib/docker/overlay2/f649278f5cecd29d51d4abde0e2da8f34b2c79e85b168cec05a6c03fbee4506e/diff",
+                "MergedDir": "/var/lib/docker/overlay2/77b81ae609f70a84ca01efaccb4720005c0bc65722cf6a8dd52b2ba79a02f903/merged",
+                "UpperDir": "/var/lib/docker/overlay2/77b81ae609f70a84ca01efaccb4720005c0bc65722cf6a8dd52b2ba79a02f903/diff",
+                "WorkDir": "/var/lib/docker/overlay2/77b81ae609f70a84ca01efaccb4720005c0bc65722cf6a8dd52b2ba79a02f903/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "ubuntu1",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Image": "ubuntu:16.04",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "fe4d4d4dea1425c2ffcbec43fef313b43661c929f98cf7d3a62bdb12705fb74f",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/fe4d4d4dea14",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "00c9156a3531a31141c2d89c216bb9c2387ce3ce167eb9a9ba0f5be120a2be42",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.2",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:02",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "d526b383200aa1000d0e9ffcd4e235bc5dda097e8cd22bc40f05b9d63ce6796a",
+                    "EndpointID": "00c9156a3531a31141c2d89c216bb9c2387ce3ce167eb9a9ba0f5be120a2be42",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+
+ jegan@tektutor  ~/devops-feb-2023/Day2/container-with-gui  ⇅ main  docker inspect ubuntu1 | grep IPA
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.2",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.2",
+                    
+ jegan@tektutor  ~/devops-feb-2023/Day2/container-with-gui  ⇅ main  docker inspect -f {{.NetworkSettings.IPAddress}} ubuntu1
+172.17.0.2
+
+ jegan@tektutor  ~/devops-feb-2023/Day2/container-with-gui  ⇅ main  ping 172.17.0.2
+PING 172.17.0.2 (172.17.0.2) 56(84) bytes of data.
+64 bytes from 172.17.0.2: icmp_seq=1 ttl=64 time=0.122 ms
+64 bytes from 172.17.0.2: icmp_seq=2 ttl=64 time=0.059 ms
+64 bytes from 172.17.0.2: icmp_seq=3 ttl=64 time=0.065 ms
+^C
+--- 172.17.0.2 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2032ms
+rtt min/avg/max/mdev = 0.059/0.082/0.122/0.028 ms
+</pre>
