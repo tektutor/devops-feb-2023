@@ -245,3 +245,17 @@ Processors
   - Docker SWARM 
      - Docker's native Container Orchestration Platforms ( supports only Docker ) - opensource
      - not production grade
+
+# Docker Commands
+
+## Finding the docker version
+```
+docker --version
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker --version
+Docker version 23.0.1, build a5ee5b1
+</pre>
+
