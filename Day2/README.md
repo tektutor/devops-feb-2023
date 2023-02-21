@@ -36,5 +36,13 @@ CONTAINER ID   IMAGE                                            COMMAND         
 
 You may then access the JFrog Artifactory web page from your RPS Ubuntu Chrome Web browser
 ```
-http://locahost:8080
+http://locahost:8081
 ```
+
+When it prompts for login credentials, please use the below default credentials to login
+<pre>
+username - admin
+password - password
+</pre>
+
+In case it prompts to change the password, maybe change it to 'Admin@123' as I would use this password in my code.
