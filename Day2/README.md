@@ -798,3 +798,14 @@ docker run --env="DISPLAY" --net=host --name=gedit tektutor/gedit:latest
 ```
 
 You should see gedit UI on your local machine.
+
+## Lab - Creating a nginx web server container
+```
+docker rm -f $(docker ps -aq)
+
+docker run -d --name nginx1 --hostname nginx1 nginx:latest
+docker ps
+docker inspect nginx1 | grep IPA
+curl http://172.17.0.2
+
+```
