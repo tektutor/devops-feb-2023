@@ -95,7 +95,58 @@ mvn deploy
 - aka virtualization 
 - this technology allows running multiple OS on a Desktop/Laptop/Workstation/Server at the same time
 - i.e many OS can be actively running at the same on a Desktop/Laptop/Workstation/Server
+- Two types
+  1. Type 1 - Bare Metal Hypervisor - This can be installed directly on the bare metal with no OS
+     - used in Workstations/Servers
+  2. Type 2 - This can be installed on top of a Host OS (Windows,Unix,Linux or Mac OS-X)
+     - used in Laptops/Desktops
+  
+- Examples
+  Type 1 - VMWare vCenter/vSphere
+  Type 2
+  - VMWare Workstation ( Linux & Windows )
+  - VMWare Fusion ( Mac OS-X)
+  - Oracle VirtualBox
+  - Microsoft Hyper-V
+  - Parallels ( Mac OS-X )
+  - KVM (Kernel Virtual Manager )
 
+- Virtualization helps consoliating many Physical Server into one or few number of Physical Server
+- Cost Savings
+  - With few servers, many OS can be installed on Virtual Machines
+  - Cost of real estate renting/lease reduces as the size of server room reduces
+  - Cost of Airconditioning, sound proofing, electricity bill reduces drastically
+  - each Virtual Machine(VM) represents one fully functional Operating System
+  - each Virtual Machine(VM) get its own dedicated hardware resources
+    - CPU
+    - RAM
+    - Storage (HDD)
+  - heavy-weight Virtualization
+
+## How to find out the maximum number of Virtual Machines a laptop/desktop/workstation/server can support?
+- Processor ( how many CPU cores the Processor supports )
+- RAM
+- Storage
+- Processors (x86_64)
+  AMD
+  - AMD-V - Virtualization feature set supported in AMD Processors
+  
+  Intel
+  - VT-X - Virtualization feature set supported in Intel Processors
+Processors
+- comes in different form factor
+- SCM ( Single Chip Module - One Physical IC will contain only 1 Processor with many CPU Cores )
+- MCM ( Multi Chip Modules - One Physial IC with contain many Processor each with many CPU Cores )
+- If I need let's say 2000 Virtual Machines, how many minimum Physical servers can support 2000 VMs
+  - 1 or 2 Physical Servers
+  - 8 Socket Server Motherboards
+  - 8 MCM Processors on 8 different Sockets on the Server Motherboard
+  - Assume each MCM supports let's say 4 Processors, each Processor supports 128 Cores
+  - 4 x 128 = in MCM
+  - 4 x 128 x 8 = 4096 Physical Cores
+  - each Physical is seen as 2 or 4 virtual cores by the Hypervisor software
+  - 4096 x 2 = 8192 virtual cores
+ 
 
 ## What is Application Virtualization?
 
