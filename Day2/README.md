@@ -436,3 +436,25 @@ hello
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED       STATUS       PORTS                                                           NAMES
 0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 hours ago   Up 4 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
+
+## Deleting a running container
+```
+
+```
+
+Expected output
+<pre>
+jegan@tektutor  ~  docker ps
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED       STATUS       PORTS                                                           NAMES
+0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 hours ago   Up 4 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+ jegan@tektutor  ~  docker rm artifactory
+Error response from daemon: You cannot remove a running container 0c14e8de60da62819561aedbcc12d2b09cb18e3c0fd67bbf78a3deebce4be9af. Stop the container before attempting removal or force remove
+ ✘ jegan@tektutor  ~  docker stop artifactory
+artifactory
+ jegan@tektutor  ~  docker rm artifactory
+artifactory
+ jegan@tektutor  ~  docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+ jegan@tektutor  ~  docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+</pre>
