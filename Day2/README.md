@@ -458,3 +458,40 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
  jegan@tektutor  ~  docker ps -a
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 </pre>
+
+## Creating ubuntu containers in background
+```
+docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash
+docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:16.04 /bin/bash
+docker run -dit --name ubuntu3 --hostname ubuntu3 ubuntu:16.04 /bin/bash
+```
+
+Expected output
+<pre>
+ jegan@tektutor  ~  docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash
+Unable to find image 'ubuntu:16.04' locally
+16.04: Pulling from library/ubuntu
+58690f9b18fc: Pull complete 
+b51569e7c507: Pull complete 
+da8ef40b9eca: Pull complete 
+fb15d46c38dc: Pull complete 
+Digest: sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6
+Status: Downloaded newer image for ubuntu:16.04
+ab64f512f5e86f70f206a9e489c8749598fe1d57be967816346ad4eb5c995d8f
+
+ jegan@tektutor  ~  docker ps
+CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS         PORTS     NAMES
+ab64f512f5e8   ubuntu:16.04   "/bin/bash"   3 seconds ago   Up 2 seconds             ubuntu1
+
+ jegan@tektutor  ~  docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:16.04 /bin/bash
+7a0a3f8b9e0a13ce3b40d9332e060b5bbe122c59d819dccebe39289f232f6f66
+
+ jegan@tektutor  ~  docker run -dit --name ubuntu3 --hostname ubuntu3 ubuntu:16.04 /bin/bash
+9cfa1cd2e345dffbf16535366a70c4014a09219c189428cadfc43ce69da797cb
+
+ jegan@tektutor  ~  docker ps
+CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS          PORTS     NAMES
+9cfa1cd2e345   ubuntu:16.04   "/bin/bash"   2 seconds ago    Up 1 second               ubuntu3
+7a0a3f8b9e0a   ubuntu:16.04   "/bin/bash"   8 seconds ago    Up 7 seconds              ubuntu2
+ab64f512f5e8   ubuntu:16.04   "/bin/bash"   20 seconds ago   Up 19 seconds             ubuntu1
+</pre>
