@@ -1,5 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y gedit x11vnc xvfb
+RUN apt update && apt install -y gedit
 
-CMD ["/usr/bin/gedit] 
+CMD /usr/bin/gedit
+
