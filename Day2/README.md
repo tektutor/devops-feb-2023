@@ -246,6 +246,15 @@ Processors
      - Docker's native Container Orchestration Platforms ( supports only Docker ) - opensource
      - not production grade
 
+## What is a Docker Image
+- a specification of a Docker container
+- whatever software tools you need in a container can be installed on Docker image
+- containers are created from a Docker Image
+
+## What is a Docker Container
+- a running instance of a Docker Image
+- each running container gets a unique name, id and IP address
+
 # Docker Commands
 
 ## Finding the docker version
@@ -328,4 +337,5 @@ Server:
   127.0.0.0/8
  Live Restore Enabled: false
 </pre>
+
 
