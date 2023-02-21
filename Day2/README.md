@@ -808,3 +808,23 @@ docker ps
 docker inspect nginx1 | grep IPA
 curl http://172.17.0.2
 ```
+
+## Setting up Load Balancer with nginx
+```
+cd ~/devops-feb-2023
+git pull origin main
+cd Day2/nginx-lb
+
+docker rm -f $(docker ps -aq)
+
+docker run -d --name nginx1 --hostname nginx1 nginx:latest
+docker run -d --name nginx2 --hostname nginx2 nginx:latest
+docker run -d --name nginx3 --hostname nginx3 nginx:latest
+
+docker run -d --name lb --hostname lb -p 8080:80 nginx:latest
+
+docker cp nginx.conf lb:/etc/nginx/nginx.conf
+docker restart lb
+docker ps
+
+```
