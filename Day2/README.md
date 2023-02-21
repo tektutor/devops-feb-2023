@@ -495,3 +495,43 @@ CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS          POR
 7a0a3f8b9e0a   ubuntu:16.04   "/bin/bash"   8 seconds ago    Up 7 seconds              ubuntu2
 ab64f512f5e8   ubuntu:16.04   "/bin/bash"   20 seconds ago   Up 19 seconds             ubuntu1
 </pre>
+
+## Lab - Stopping and Starting multiple containers
+```
+docker stop ubuntu1
+docker stop ubuntu2 ubuntu3
+docker ps
+docker ps -a
+docker start ubuntu1 ubuntu2 ubuntu3
+docker ps
+```
+
+Expected output
+<pre>
+ jegan@tektutor  ~  docker stop ubuntu1
+ubuntu1
+
+ jegan@tektutor  ~  docker stop ubuntu2 ubuntu3
+ubuntu2
+ubuntu3
+
+ jegan@tektutor  ~  docker ps 
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+ jegan@tektutor  ~  docker ps -a
+CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS                      PORTS     NAMES
+9cfa1cd2e345   ubuntu:16.04   "/bin/bash"   2 minutes ago   Exited (0) 5 seconds ago              ubuntu3
+7a0a3f8b9e0a   ubuntu:16.04   "/bin/bash"   2 minutes ago   Exited (0) 5 seconds ago              ubuntu2
+ab64f512f5e8   ubuntu:16.04   "/bin/bash"   2 minutes ago   Exited (0) 11 seconds ago             ubuntu1
+
+ jegan@tektutor  ~  docker start ubuntu1 ubuntu2 ubuntu3
+ubuntu1
+ubuntu2
+ubuntu3
+
+ jegan@tektutor  ~  docker ps
+CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS         PORTS     NAMES
+9cfa1cd2e345   ubuntu:16.04   "/bin/bash"   2 minutes ago   Up 3 seconds             ubuntu3
+7a0a3f8b9e0a   ubuntu:16.04   "/bin/bash"   2 minutes ago   Up 3 seconds             ubuntu2
+ab64f512f5e8   ubuntu:16.04   "/bin/bash"   3 minutes ago   Up 4 seconds             ubuntu1
+</pre>
