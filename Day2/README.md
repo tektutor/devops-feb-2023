@@ -1,4 +1,4 @@
-# Day2
+# Day 2
 
 Creating JFrog Artifactory as a Docker Container
 For detailed instructions, you may refer the official documentation here https://www.jfrog.com/confluence/display/RTF6X/Installing+with+Docker
@@ -79,4 +79,29 @@ git pull origin main
 cd Day2/multi-module-project
 mvn deploy
 ```
+
+# Docker
+
+## What is dual booting or multi-booting?
+- Boot Loader utilities are used to boot into different OS on a laptop/desktop
+- Boot Loader Examples
+  - LILO (Linux Loaders)
+  - GRUB1 
+  - GRUB2
+- Master Boot Record (MBR)
+  - in your hard disk, sector 0 and byte 0 - typically would be size 512 bytes
+
+## What is Hypervisor?
+- aka virtualization 
+- this technology allows running multiple OS on a Desktop/Laptop/Workstation/Server at the same time
+- i.e many OS can be actively running at the same on a Desktop/Laptop/Workstation/Server
+
+
+## What is Application Virtualization?
+
+## Hypervisor vs Container Technology
+
+## Docker Overview
+
+## Docker Alternatives
 
