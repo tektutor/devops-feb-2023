@@ -807,5 +807,4 @@ docker run -d --name nginx1 --hostname nginx1 nginx:latest
 docker ps
 docker inspect nginx1 | grep IPA
 curl http://172.17.0.2
-
 ```
