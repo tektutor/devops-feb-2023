@@ -3,11 +3,13 @@
 Creating JFrog Artifactory as a Docker Container
 For detailed instructions, you may refer the official documentation here https://www.jfrog.com/confluence/display/RTF6X/Installing+with+Docker
 
+```
 docker pull docker.bintray.io/jfrog/artifactory-oss:latest
 docker run --name artifactory --hostname artifactory -d -p 8081-8082:8081-8082 docker.bintray.io/jfrog/artifactory-oss:latest
 docker ps
+```
 Expected output
-
+<pre>
  jegan@tektutor  ~/devops-feb-2023/Day2/multi-module-project/main$ docker pull docker.bintray.io/jfrog/artifactory-oss:latest
 
 latest: Pulling from jfrog/artifactory-oss
@@ -32,6 +34,8 @@ docker.bintray.io/jfrog/artifactory-oss:latest
  jegan@tektutor  ~/devops-feb-2023/Day2/multi-module-project   main  docker ps
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS         PORTS                                                           NAMES
 0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 seconds ago   Up 3 seconds   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+</pre>
+
 You may then access the JFrog Artifactory web page from your RPS Ubuntu Chrome Web browser
 
 http://localhost:8081
