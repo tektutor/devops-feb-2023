@@ -378,3 +378,15 @@ Share images, automate workflows, and more with a free Docker ID:
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 </pre>
+
+## Lab - Listing the currently running containers
+```
+docker ps
+```
+
+Expected output
+<pre>
+ jegan@tektutor  ~  docker ps
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED       STATUS       PORTS                                                           NAMES
+0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 hours ago   Up 4 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+</pre>
