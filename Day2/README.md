@@ -782,3 +782,19 @@ tree
 ifconfig
 ping 
 ```
+
+## Lab - Running GUI application within a container
+
+Let's build image and install gedit GUI editor
+```
+cd ~/devops-feb-2023
+git pull origin main
+
+cd Day2/container-with-gui
+docker build -t tektutor/gedit .
+docker images
+xhost local:root
+docker run --env="DISPLAY" --net=host --name=gedit tektutor/gedit:latest
+```
+
+You should see gedit UI on your local machine.
