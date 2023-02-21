@@ -219,3 +219,29 @@ Processors
     - you could restrict how much CPU a container can use at the max ( 25%, 50% )
     - you could restrict how much RAM a container can use at the max
     - you could restrict how much Storage a container can use at the max
+
+## What is Container Orchestration Platforms
+- they manage containerized applications
+- they manage containerized Microservices, Web Servers, App Server, DB Servers, etc., 
+- they support High Availability(HA) to your containerized applications
+- supports inbuilt monitoring and self-healing
+- scaling up/down when the traffic to your containerized application increases/decreases
+- rolling update
+  - upgrading your application/microservice from one version to other in live environment without any downtime
+  - also supports rolling back to older stable versions when new deployed version is found to unstable
+- supports services to expose your application/microservice instances within the container orchestration cluster or to the external world
+
+- Examples
+  - Google Kubernetes 
+    - Supports many Container Runtimes and Container Engines ( opensource )
+    - Production grade
+    
+  - Red Hat OpenShift 
+    - it is developed on top Google Kubernetes
+    - supports many additional features on top of features supported by Kubernetes
+    - Supports CRI-O Container Runtime and Podman Container Engine - Paid
+    - production grade
+    
+  - Docker SWARM 
+     - Docker's native Container Orchestration Platforms ( supports only Docker ) - opensource
+     - not production grade
