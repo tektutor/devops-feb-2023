@@ -259,7 +259,7 @@ Processors
 - each running container gets a unique name, id and IP address
 
 ## Docker Image - Container Relationship
-![Docker Image-Container Relationship](DockerImageLayers.png)
+![Docker Image-Container Relationship](DockerImageLayersUpdated.png)
 
 # Docker Commands
 
