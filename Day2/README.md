@@ -825,7 +825,7 @@ curl http://172.17.0.2
 
 ## Setting up Load Balancer with nginx
 
-[Load Balancer](DockerPortForwarding.png)
+![Load Balancer](DockerPortForwarding.png)
 
 ```
 cd ~/devops-feb-2023
