@@ -240,3 +240,24 @@ tektutor/spring-ms                        1.0       9175b940f970   6 months ago 
 hello-world                               latest    feb5d9fea6a5   17 months ago   13.3kB
 ubuntu                                    16.04     b6f507652425   18 months ago   135MB
 </pre>
+
+## Let's create two ubuntu containers
+```
+docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu-node:latest
+docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu-node:latest
+docker ps
+```
+
+Expected output
+<pre>
+jegan@tektutor.org $ <b>docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu-node:latest</b>
+119217305f9779288dfe9f61b5807c4fdb2dc76c1f71de0fa120ba54104ee8dc
+
+jegan@tektutor.org $ <b>docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu-node:latest</b>
+1f2507eaae6a6452ef69d8f322b39d834f2657510d3786a90ce027adf38ebd28
+
+ jegan@tektutor.org $ <b>docker ps</b>
+CONTAINER ID   IMAGE                                 COMMAND               CREATED          STATUS          PORTS                                                                          NAMES
+1f2507eaae6a   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   10 seconds ago   Up 10 seconds   0.0.0.0:2002->22/tcp, :::2002->22/tcp, 0.0.0.0:8002->80/tcp, :::8002->80/tcp   ubuntu2
+119217305f97   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   24 seconds ago   Up 23 seconds   0.0.0.0:2001->22/tcp, :::2001->22/tcp, 0.0.0.0:8001->80/tcp, :::8001->80/tcp   ubuntu1
+</pre>
