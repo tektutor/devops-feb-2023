@@ -144,7 +144,9 @@ In the above exercise, you would have learned that storing the data to an extern
 ![Ansible Architecture](AnsibleHighLevelArchitecture.png)
 
 ## Recommended editor for Ansible 
-You can try Microsoft Visual Studio Code editor.  You can download the Ubuntu .deb package and install this on Ubuntu
+You can try Microsoft Visual Studio Code editor.  
+
+You can download the Ubuntu .deb package from your web browser at this url https://code.visualstudio.com/docs/?dv=linux64_deb and install this on Ubuntu as shown below
 ```
 cd ~/Downloads
 sudo apt install -y ./code_1.75.1-1675893397_amd64.deb
