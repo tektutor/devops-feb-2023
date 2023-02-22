@@ -168,6 +168,9 @@ Processors
 - Hence, container's will never be able to replace Virtual Machines or Operating Systems
 - Containers depends on the HOST OS Kernel for OS level functionalities
 
+## Hypervisor vs Docker High Level Architecture
+![Hypervisor vs Docker High Level Architecture](HypervisorDockerArchitecture.png)
+
 ## Docker Overview
 - is one of the popular Container Software out there
 - comes in 2 flavours
