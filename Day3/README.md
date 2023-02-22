@@ -184,3 +184,169 @@ The key's randomart image is:
 |                 |
 +----[SHA256]-----+
 </pre>
+
+## Copying your public key into the ubuntu docker image folder
+```
+cd ~/devops-feb-2023
+git pull origin main 
+
+cd Day3/ansible/CustomDockerImageForAnsibleNodes/ubuntu
+cp ~/.ssh/id_rsa.pub authorized_keys
+```
+
+## Building your custom ansible ubuntu node image
+```
+cd ~/devops-feb-2023
+git pull origin main 
+
+cd Day3/ansible/CustomDockerImageForAnsibleNodes/ubuntu
+
+docker build -t tektutor/ansible-ubuntu-node:latest .
+```
+
+Expected output
+<pre>
+jegan@tektutor.org $ <b>docker build -t tektutor/ansible-ubuntu-node:latest .</b>
+[+] Building 29.6s (13/13) FINISHED                                                                                                     
+ => [internal] load .dockerignore                                                                                                  0.0s
+ => => transferring context: 2B                                                                                                    0.0s
+ => [internal] load build definition from Dockerfile                                                                               0.0s
+ => => transferring dockerfile: 671B                                                                                               0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:16.04                                                                    0.0s
+ => CACHED [1/8] FROM docker.io/library/ubuntu:16.04                                                                               0.0s
+ => [internal] load build context                                                                                                  0.0s
+ => => transferring context: 675B                                                                                                  0.0s
+ => [2/8] RUN apt-get update && apt-get install -y openssh-server python3                                                         26.8s
+ => [3/8] RUN mkdir -p /var/run/sshd                                                                                               0.4s 
+ => [4/8] RUN echo 'root:root' | chpasswd                                                                                          0.4s 
+ => [5/8] RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config                               0.4s 
+ => [6/8] RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd                   0.3s 
+ => [7/8] RUN mkdir -p /root/.ssh                                                                                                  0.4s 
+ => [8/8] COPY authorized_keys /root/.ssh/authorized_keys                                                                          0.1s 
+ => exporting to image                                                                                                             0.8s
+ => => exporting layers                                                                                                            0.8s
+ => => writing image sha256:f5d874a691226f400007478ba2e4042631e19fbad4fb0aa17d243603228add11                                       0.0s
+ => => naming to docker.io/tektutor/ansible-ubuntu-node:latest                                                                     0.0s
+ 
+jegan@tektutor.org $ <b>docker images</b>
+REPOSITORY                                TAG       IMAGE ID       CREATED         SIZE
+<b>tektutor/ansible-ubuntu-node              latest    f5d874a69122   7 seconds ago   220MB</b>
+tektutor/gedit                            latest    2feb50bfbc49   20 hours ago    678MB
+tektutor/ubuntu                           latest    e8386dde8457   20 hours ago    227MB
+bitnami/mysql                             latest    85ae5eff30c3   23 hours ago    515MB
+docker.bintray.io/jfrog/artifactory-oss   latest    4809cef53f93   10 days ago     1.48GB
+nginx                                     latest    3f8a00f137a0   13 days ago     142MB
+tektutor/spring-ms                        1.0       9175b940f970   6 months ago    481MB
+hello-world                               latest    feb5d9fea6a5   17 months ago   13.3kB
+ubuntu                                    16.04     b6f507652425   18 months ago   135MB
+</pre>
+
+## Let's create two ubuntu containers
+```
+docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu-node:latest
+docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu-node:latest
+docker ps
+```
+
+Expected output
+<pre>
+jegan@tektutor.org $ <b>docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu-node:latest</b>
+119217305f9779288dfe9f61b5807c4fdb2dc76c1f71de0fa120ba54104ee8dc
+
+jegan@tektutor.org $ <b>docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu-node:latest</b>
+1f2507eaae6a6452ef69d8f322b39d834f2657510d3786a90ce027adf38ebd28
+
+ jegan@tektutor.org $ <b>docker ps</b>
+CONTAINER ID   IMAGE                                 COMMAND               CREATED          STATUS          PORTS                                                                          NAMES
+1f2507eaae6a   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   10 seconds ago   Up 10 seconds   0.0.0.0:2002->22/tcp, :::2002->22/tcp, 0.0.0.0:8002->80/tcp, :::8002->80/tcp   ubuntu2
+119217305f97   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   24 seconds ago   Up 23 seconds   0.0.0.0:2001->22/tcp, :::2001->22/tcp, 0.0.0.0:8001->80/tcp, :::8001->80/tcp   ubuntu1
+</pre>
+
+## Testing if the the container meets the Ansible requirements
+```
+ssh -p 2001 root@localhost
+ssh -p 2002 root@localhost
+```
+
+Expected output
+<pre>
+jegan@tektutor.org $ <b>ssh -p 2001 root@localhost</b>
+The authenticity of host '[localhost]:2001 ([::1]:2001)' can't be established.
+ED25519 key fingerprint is SHA256:CxM/CGz174Qp2ZY5ZYNUwAWy7+nXxvKy+9z3U+b4QLo.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? <b>yes</b>
+Warning: Permanently added '[localhost]:2001' (ED25519) to the list of known hosts.
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 6.0.7-301.fc37.x86_64 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@ubuntu1:~# <b>exit</b>
+logout
+Connection to localhost closed.
+
+jegan@tektutor.org $ <b>ssh -p 2002 root@localhost</b>
+The authenticity of host '[localhost]:2002 ([::1]:2002)' can't be established.
+ED25519 key fingerprint is SHA256:CxM/CGz174Qp2ZY5ZYNUwAWy7+nXxvKy+9z3U+b4QLo.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:1: [localhost]:2001
+Are you sure you want to continue connecting (yes/no/[fingerprint])? <b>yes</b>
+Warning: Permanently added '[localhost]:2002' (ED25519) to the list of known hosts.
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 6.0.7-301.fc37.x86_64 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@ubuntu2:~# <b>exit</b>
+logout
+Connection to localhost closed.
+</pre>
+
+## Lab - Running your first ansible ad-hoc command
+```
+cd ~/devops-feb-2023
+git pull origin main
+
+cd Day3/ansible
+ansible -i inventory all -m ping
+```
+
+Expected output
+<pre>
+jegan@tektutor.org  $ <b>cat inventory</b>
+[all]
+ubuntu1 ansible_port=2001 ansible_user=root ansible_host=localhost ansible_private_key_file=~/.ssh/ida_rsa
+ubuntu2 ansible_port=2002 ansible_user=root ansible_host=localhost ansible_private_key_file=~/.ssh/ida_rsa%         
+
+jegan@tektutor.org $ <b>ansible -i inventory all -m ping</b>
+ubuntu1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+</pre>
