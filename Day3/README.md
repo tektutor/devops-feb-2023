@@ -350,3 +350,51 @@ ubuntu2 | SUCCESS => {
     "ping": "pong"
 }
 </pre>
+
+## Building CentOS docker image
+```
+cd ~/devops-feb-2023
+git pull origin main
+
+cd Day3/ansible/CustomDockerImageForAnsibleNodes
+cp ~/.ssh/id_rsa.pub authorized_keys
+docker build -t tektutor/ansible-centos-node:latest .
+docker images
+```
+
+#### Creating couple of centos containers
+```
+docker run -d --name centos1 --hostname centos1 -p 2003:22 -p 8003:80 tektutor/ansible-centos-node:latest
+docker run -d --name centos2 --hostname centos2 -p 2004:22 -p 8004:80 tektutor/ansible-centos-node:latest
+docker ps
+```
+
+#### Checking if the centos containers meets the Ansible requirements
+```
+ssh -p 2003 root@localhost
+ssh -p 2004 root@localhost
+```
+
+Expected output
+<pre>
+jegan@tektutor.org $ <b>ssh -p 2003 root@localhost</b>
+The authenticity of host '[localhost]:2003 ([::1]:2003)' can't be established.
+RSA key fingerprint is SHA256:SS6qoCQnys61tU61XOUrsbEMfhATFLqdtU06RRmUsGY.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? <b>yes</b>
+Warning: Permanently added '[localhost]:2003' (RSA) to the list of known hosts.
+[root@centos1 ~]# <b>exit</b>
+logout
+Connection to localhost closed.
+
+jegan@tektutor.org $ <b>ssh -p 2004 root@localhost</b>
+The authenticity of host '[localhost]:2004 ([::1]:2004)' can't be established.
+RSA key fingerprint is SHA256:SS6qoCQnys61tU61XOUrsbEMfhATFLqdtU06RRmUsGY.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:5: [localhost]:2003
+Are you sure you want to continue connecting (yes/no/[fingerprint])? <b>yes</b>
+Warning: Permanently added '[localhost]:2004' (RSA) to the list of known hosts.
+[root@centos2 ~]# <b>exit</b>
+logout
+Connection to localhost closed.
+</pre>
