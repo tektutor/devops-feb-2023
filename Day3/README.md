@@ -36,7 +36,7 @@ mysql -u root -p
 SHOW DATABASES;
 ```
 
-Now, you can observe that the tektutor database is missing as we used the container storage and data is lost.
+Now, you can observe that the tektutor database is missing as we used the container storage and data is lost when the container was deleted.
 
 This is the reason, external volumes are used to persist the data permanently.
 
