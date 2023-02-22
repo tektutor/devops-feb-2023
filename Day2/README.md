@@ -10,7 +10,7 @@ docker ps
 ```
 Expected output
 <pre>
- jegan@tektutor  ~/devops-feb-2023/Day2/multi-module-project/main$ docker pull docker.bintray.io/jfrog/artifactory-oss:latest
+jegan@tektutor.org $ <b>docker pull docker.bintray.io/jfrog/artifactory-oss:latest</b>
 
 latest: Pulling from jfrog/artifactory-oss
 fdb82fb306d5: Pull complete 
@@ -27,11 +27,11 @@ Digest: sha256:570624299b92ab43ec70a0a38617ed5e8452e23f9aeaeb8f9c32b9d9c1e35418
 Status: Downloaded newer image for docker.bintray.io/jfrog/artifactory-oss:latest
 docker.bintray.io/jfrog/artifactory-oss:latest
 
- jegan@tektutor  ~/devops-feb-2023/Day2/multi-module-project   main  docker run --name artifactory --hostname artifactory -d -p 8081-8082:8081-8082 docker.bintray.io/jfrog/artifactory-oss:latest
+jegan@tektutor.org $ <b>docker run --name artifactory --hostname artifactory -d -p 8081-8082:8081-8082 docker.bintray.io/jfrog/artifactory-oss:latest</b>
 
 0c14e8de60da62819561aedbcc12d2b09cb18e3c0fd67bbf78a3deebce4be9af
 
- jegan@tektutor  ~/devops-feb-2023/Day2/multi-module-project   main  docker ps
+jegan@tektutor.org $ <b>docker ps</b>
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS         PORTS                                                           NAMES
 0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 seconds ago   Up 3 seconds   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
@@ -60,7 +60,7 @@ In my case the path is
 </pre>
 
 You need to modify the settings.xml as shown below
-````
+```
  <servers>
     <server>
       <id>artifactory</id>
@@ -168,6 +168,9 @@ Processors
 - Hence, container's will never be able to replace Virtual Machines or Operating Systems
 - Containers depends on the HOST OS Kernel for OS level functionalities
 
+## Hypervisor vs Docker High Level Architecture
+![Hypervisor vs Docker High Level Architecture](HypervisorDockerArchitecture.png)
+
 ## Docker Overview
 - is one of the popular Container Software out there
 - comes in 2 flavours
@@ -255,6 +258,9 @@ Processors
 - a running instance of a Docker Image
 - each running container gets a unique name, id and IP address
 
+## Docker Image - Container Relationship
+![Docker Image-Container Relationship](DockerImageLayersUpdated.png)
+
 # Docker Commands
 
 ## Finding the docker version
@@ -264,7 +270,7 @@ docker --version
 
 Expected output
 <pre>
-[jegan@tektutor ~]$ docker --version
+jegan@tektutor.org $ <b>docker --version</b>
 Docker version 23.0.1, build a5ee5b1
 </pre>
 
@@ -275,7 +281,7 @@ docker info
 
 Expected output
 <pre>
- jegan@tektutor  ~  docker info
+jegan@tektutor.org $ <b>docker info</b>
 Client:
  Context:    default
  Debug Mode: false
@@ -350,7 +356,7 @@ docker run hello-world
 
 Expected output
 <pre>
- jegan@tektutor  ~  docker run hello-world
+jegan@tektutor $ <b>docker run hello-world</b>
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
 2db29710123e: Pull complete 
@@ -386,7 +392,7 @@ docker ps
 
 Expected output
 <pre>
- jegan@tektutor  ~  docker ps
+jegan@tektutor.org $ <b>docker ps</b>
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED       STATUS       PORTS                                                           NAMES
 0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 hours ago   Up 4 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
@@ -399,7 +405,7 @@ docker ps -a
 
 Expected output
 <pre>
-docker ps -a
+jegan@tektutor.org $ <b>docker ps -a</b>
 
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS                     PORTS                                                           NAMES
 6c569adc718c   hello-world                                      "/hello"                 2 minutes ago   Exited (0) 2 minutes ago                                                                   frosty_hermann
@@ -415,10 +421,11 @@ Expected output
 <pre>
 docker rename frosty_hermann hello
 
- jegan@tektutor  ~  docker ps
+jegan@tektutor.org $ <b>docker ps</b>
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED       STATUS       PORTS                                                           NAMES
 0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 hours ago   Up 4 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
- jegan@tektutor  ~  docker ps -a
+
+jegan@tektutor.org $ <b>docker ps -a</b>
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS                     PORTS                                                           NAMES
 6c569adc718c   hello-world                                      "/hello"                 5 minutes ago   Exited (0) 5 minutes ago                                                                   hello
 0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 hours ago     Up 4 hours                 0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
@@ -430,9 +437,10 @@ docker rm hello
 ```
 Expected output
 <pre>
- jegan@tektutor  ~  docker rm hello
+jegan@tektutor.org $ <b>docker rm hello</b>
 hello
- jegan@tektutor  ~  docker ps -a
+
+jegan@tektutor.org $ <b>docker ps -a</b>
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED       STATUS       PORTS                                                           NAMES
 0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 hours ago   Up 4 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
@@ -444,18 +452,23 @@ CONTAINER ID   IMAGE                                            COMMAND         
 
 Expected output
 <pre>
-jegan@tektutor  ~  docker ps
+jegan@tektutor.org $ <b>docker ps</b>
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED       STATUS       PORTS                                                           NAMES
 0c14e8de60da   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   4 hours ago   Up 4 hours   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
- jegan@tektutor  ~  docker rm artifactory
+
+jegan@tektutor.org $ <b>docker rm artifactory</b>
 Error response from daemon: You cannot remove a running container 0c14e8de60da62819561aedbcc12d2b09cb18e3c0fd67bbf78a3deebce4be9af. Stop the container before attempting removal or force remove
- ✘ jegan@tektutor  ~  docker stop artifactory
+
+jegan@tektutor.org $ <b>docker stop artifactory</b>
 artifactory
- jegan@tektutor  ~  docker rm artifactory
+
+jegan@tektutor.org $ <b>docker rm artifactory</b>
 artifactory
- jegan@tektutor  ~  docker ps
+
+jegan@tektutor.org $ <b>docker ps</b>
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
- jegan@tektutor  ~  docker ps -a
+
+jegan@tektutor.org $ <b>docker ps -a</b>
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 </pre>
 
@@ -468,7 +481,7 @@ docker run -dit --name ubuntu3 --hostname ubuntu3 ubuntu:16.04 /bin/bash
 
 Expected output
 <pre>
- jegan@tektutor  ~  docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash
+jegan@tektutor.org $ <b>docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash</b>
 Unable to find image 'ubuntu:16.04' locally
 16.04: Pulling from library/ubuntu
 58690f9b18fc: Pull complete 
@@ -479,17 +492,17 @@ Digest: sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6
 Status: Downloaded newer image for ubuntu:16.04
 ab64f512f5e86f70f206a9e489c8749598fe1d57be967816346ad4eb5c995d8f
 
- jegan@tektutor  ~  docker ps
+jegan@tektutor.org $ <b>docker ps</b>
 CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS         PORTS     NAMES
 ab64f512f5e8   ubuntu:16.04   "/bin/bash"   3 seconds ago   Up 2 seconds             ubuntu1
 
- jegan@tektutor  ~  docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:16.04 /bin/bash
+jegan@tektutor.org $ <b>docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:16.04 /bin/bash</b>
 7a0a3f8b9e0a13ce3b40d9332e060b5bbe122c59d819dccebe39289f232f6f66
 
- jegan@tektutor  ~  docker run -dit --name ubuntu3 --hostname ubuntu3 ubuntu:16.04 /bin/bash
+jegan@tektutor.org $ <b>docker run -dit --name ubuntu3 --hostname ubuntu3 ubuntu:16.04 /bin/bash</b>
 9cfa1cd2e345dffbf16535366a70c4014a09219c189428cadfc43ce69da797cb
 
- jegan@tektutor  ~  docker ps
+jegan@tektutor.org $ <b>docker ps</b>
 CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS          PORTS     NAMES
 9cfa1cd2e345   ubuntu:16.04   "/bin/bash"   2 seconds ago    Up 1 second               ubuntu3
 7a0a3f8b9e0a   ubuntu:16.04   "/bin/bash"   8 seconds ago    Up 7 seconds              ubuntu2
@@ -508,28 +521,28 @@ docker ps
 
 Expected output
 <pre>
- jegan@tektutor  ~  docker stop ubuntu1
+jegan@tektutor.org $ <b>docker stop ubuntu1</b>
 ubuntu1
 
- jegan@tektutor  ~  docker stop ubuntu2 ubuntu3
+jegan@tektutor.org $ <b>docker stop ubuntu2 ubuntu3</b>
 ubuntu2
 ubuntu3
 
- jegan@tektutor  ~  docker ps 
+jegan@tektutor.org $ <b>docker ps</b>
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
- jegan@tektutor  ~  docker ps -a
+jegan@tektutor.org $ <b>docker ps -a</b>
 CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS                      PORTS     NAMES
 9cfa1cd2e345   ubuntu:16.04   "/bin/bash"   2 minutes ago   Exited (0) 5 seconds ago              ubuntu3
 7a0a3f8b9e0a   ubuntu:16.04   "/bin/bash"   2 minutes ago   Exited (0) 5 seconds ago              ubuntu2
 ab64f512f5e8   ubuntu:16.04   "/bin/bash"   2 minutes ago   Exited (0) 11 seconds ago             ubuntu1
 
- jegan@tektutor  ~  docker start ubuntu1 ubuntu2 ubuntu3
+jegan@tektutor.org $ <b>docker start ubuntu1 ubuntu2 ubuntu3</b>
 ubuntu1
 ubuntu2
 ubuntu3
 
- jegan@tektutor  ~  docker ps
+jegan@tektutor.org $ <b>docker ps</b>
 CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS         PORTS     NAMES
 9cfa1cd2e345   ubuntu:16.04   "/bin/bash"   2 minutes ago   Up 3 seconds             ubuntu3
 7a0a3f8b9e0a   ubuntu:16.04   "/bin/bash"   2 minutes ago   Up 3 seconds             ubuntu2
@@ -545,12 +558,13 @@ docker inspect {{.NetworkSettings.IPAddress}} ubuntu1
 
 Expected output
 <pre>
- jegan@tektutor  ~/devops-feb-2023/Day2/container-with-gui  ⇅ main  docker ps
+jegan@tektutor.org $ <b>docker ps</b>
 CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS         PORTS     NAMES
 9cfa1cd2e345   ubuntu:16.04   "/bin/bash"   7 minutes ago   Up 5 minutes             ubuntu3
 7a0a3f8b9e0a   ubuntu:16.04   "/bin/bash"   8 minutes ago   Up 5 minutes             ubuntu2
 ab64f512f5e8   ubuntu:16.04   "/bin/bash"   8 minutes ago   Up 5 minutes             ubuntu1
- jegan@tektutor  ~/devops-feb-2023/Day2/container-with-gui  ⇅ main  docker inspect ubuntu1
+
+jegan@tektutor.org $ <b>docker inspect ubuntu1</b>
 [
     {
         "Id": "ab64f512f5e86f70f206a9e489c8749598fe1d57be967816346ad4eb5c995d8f",
@@ -746,21 +760,21 @@ ab64f512f5e8   ubuntu:16.04   "/bin/bash"   8 minutes ago   Up 5 minutes        
     }
 ]
 
- jegan@tektutor  ~/devops-feb-2023/Day2/container-with-gui  ⇅ main  docker inspect ubuntu1 | grep IPA
+jegan@tektutor.org $ <b>docker inspect ubuntu1 | grep IPA</b>
             "SecondaryIPAddresses": null,
             "IPAddress": "172.17.0.2",
                     "IPAMConfig": null,
                     "IPAddress": "172.17.0.2",
                     
- jegan@tektutor  ~/devops-feb-2023/Day2/container-with-gui  ⇅ main  docker inspect -f {{.NetworkSettings.IPAddress}} ubuntu1
+jegan@tektutor.org $ <b>docker inspect -f {{.NetworkSettings.IPAddress}} ubuntu1</b>
 172.17.0.2
 
- jegan@tektutor  ~/devops-feb-2023/Day2/container-with-gui  ⇅ main  ping 172.17.0.2
+jegan@tektutor.org $ <b>ping 172.17.0.2</b>
 PING 172.17.0.2 (172.17.0.2) 56(84) bytes of data.
 64 bytes from 172.17.0.2: icmp_seq=1 ttl=64 time=0.122 ms
 64 bytes from 172.17.0.2: icmp_seq=2 ttl=64 time=0.059 ms
 64 bytes from 172.17.0.2: icmp_seq=3 ttl=64 time=0.065 ms
-^C
+
 --- 172.17.0.2 ping statistics ---
 3 packets transmitted, 3 received, 0% packet loss, time 2032ms
 rtt min/avg/max/mdev = 0.059/0.082/0.122/0.028 ms
@@ -774,11 +788,64 @@ git pull
 cd Day2/CustomDockerImage
 docker build -t tektutor/ubuntu .
 docker images
-docker run -d --name c1 --hostname c1 tektutor/ubuntu /bin/bash
+docker run -dit --name c1 --hostname c1 tektutor/ubuntu /bin/bash
 docker ps
 docker exec -it c1 bash
 vim
 tree
 ifconfig
 ping 
+```
+
+## Lab - Running GUI application within a container
+
+Let's build image and install gedit GUI editor
+```
+cd ~/devops-feb-2023
+git pull origin main
+
+cd Day2/container-with-gui
+docker build -t tektutor/gedit .
+docker images
+xhost local:root
+docker run --env="DISPLAY" --net=host --name=gedit tektutor/gedit:latest
+```
+
+You should see gedit UI on your local machine.
+
+## Lab - Creating a nginx web server container
+```
+docker rm -f $(docker ps -aq)
+
+docker run -d --name nginx1 --hostname nginx1 nginx:latest
+docker ps
+docker inspect nginx1 | grep IPA
+curl http://172.17.0.2
+```
+
+## Setting up Load Balancer with nginx
+
+![Load Balancer](DockerPortForwarding.png)
+
+```
+cd ~/devops-feb-2023
+git pull origin main
+cd Day2/nginx-lb
+
+docker rm -f $(docker ps -aq)
+
+docker run -d --name nginx1 --hostname nginx1 nginx:latest
+docker run -d --name nginx2 --hostname nginx2 nginx:latest
+docker run -d --name nginx3 --hostname nginx3 nginx:latest
+
+docker run -d --name lb --hostname lb -p 8080:80 nginx:latest
+
+docker cp nginx.conf lb:/etc/nginx/nginx.conf
+docker restart lb
+docker ps
+```
+
+Accessing the Load Balancer
+```
+curl http://localhost:8080
 ```
