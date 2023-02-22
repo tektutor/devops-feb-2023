@@ -13,6 +13,7 @@
     copy: src=default dest=/etc/nginx/sites-available/default
 
   - name: Restart nginx server to apply the config changes
+    when: ansible_distribution == "Ubuntu" and ansible_os_family == "Debian"
     shell: service nginx restart
 
   - name: Deploy our custom web page
