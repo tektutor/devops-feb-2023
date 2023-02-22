@@ -5,6 +5,12 @@
   - conf_mgr_tool: Ansible
   - provisioner_tool: Docker
   tasks:
+  - name: Retrieve IP address
+    shell: hostname -i
+    register: ip_addr
+
+  - debug: var=ip_addr
+
   - name: Install nginx web server into ubuntu ansible nodes
     when: ansible_distribution == "Ubuntu" and ansible_os_family == "Debian"
     apt: name=nginx state=latest update_cache=yes
