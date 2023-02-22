@@ -1,6 +1,6 @@
 - name: This playbook will install nginx, configures nginx to use a custom web root folder, deploy a custom web page 
   hosts: all
-  gather_facts: no
   tasks:
   - name: Install nginx web server into ubuntu ansible nodes
+    when: ansible_distribution == "Ubuntu" and ansible_os_family == "Debian"
     apt: name=nginx state=latest update_cache=yes
