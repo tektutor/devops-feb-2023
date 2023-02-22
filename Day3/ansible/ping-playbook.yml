@@ -1,0 +1,11 @@
+- name: Playbook will ping ubuntu ansible nodes
+  hosts: dev 
+  tasks:
+  - name: Ping the dev servers
+    ping:
+
+- name: Playbook will ping centos ansible nodes
+  hosts: qa 
+  tasks:
+  - name: Ping the qa servers
+    ping:
