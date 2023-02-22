@@ -844,3 +844,8 @@ docker cp nginx.conf lb:/etc/nginx/nginx.conf
 docker restart lb
 docker ps
 ```
+
+Accessing the Load Balancer
+```
+curl http://localhost:8080
+```
