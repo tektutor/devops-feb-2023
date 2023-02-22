@@ -82,6 +82,64 @@ exit
 In the above exercise, you would have learned that storing the data to an external volume retains the data permanently and it is accessible from other containers too.
 
 
+# Ansible
 
+## What is Configuration Management Tool?
+- helps in automating software installation and configuration management
+- generally done on a an already provisioned machine
+- ie. you have already a windows/unix/linux machine either on-prem or on cloud, where you wish to install and configure softwares
+
+## Ansible Overview
+- is one of the Configuration Management Tools
+- is developed in Python by Michael Deehan ( a former employee of Red Hat )
+- Michael Deehan incorporated a company called Ansible Inc, through that company he along with wordwide Opensource contributors, developed Ansible Core as an open source configuration management tool
+- The DSL(Domain Specific Language), ie the language in which automation code is written is called the DSL
+- The DSL used in Ansible is YAML (Yet Another Markup Language - a superset of JSON[JavaScript Object Notation] )
+- it is agentless configuration management 
+- the machine where software automation is done is called Ansible Nodes
+- On Ansible Nodes, no Ansible specific software runs and monitors, hence it is called agentless
+- follows PUSH based architecture
+- can only be installed on Unix like OS ie. Unix, Mac, Linux
+- the machine where Ansible is installed it is called Ansible Controller Machine (ACM)
+
+- the automation written in YAML is called Ansible Playbook
+- Playbook follows a particular YAML structure and schema, hence not all YAML makes a Playbook
+- Ansible comes with Ansible Modules
+  - Windows Modules for Windows Ansible Nodes
+    - Written in PowerShell
+    - should have .Net Framework 3.0 or greater
+    - WinRM should be installed and active
+    
+  - Linux/Unix/Mac Modules
+    - Written in Python
+    - SSH Server should be installed and active
+
+- comes in 2 flavours
+  - Ansible Core 
+    - open source
+    - supports only CLI, there is no GUI
+    
+  - AWX  ( Community version of Ansible Tower )
+    - open source
+    - developed on top of Ansible Core
+    - supports Web console (GUI)
+    - supports user management
+    
+  - Red Hat Ansible Tower - Paid (Enterprise product - with support from Red Hat)
+    - developed on top of opensource AWX
+    
+
+## Ansible Alternatives
+- Puppet
+  - DSL is Ruby
+  - follows client/server architecture
+  - Pull based architecture
+- Chef
+  - DSL is Ruby
+  - follows client/server architecture
+  - Pull based architecture
+  
+- Salt/SaltStack
+## Ansible High Level Architecture
 
 
