@@ -40,6 +40,8 @@ Now, you can observe that the tektutor database is missing as we used the contai
 
 This is the reason, external volumes are used to persist the data permanently.
 
+![External Volume Mounting](volumemounting.png)
+
 Let's create a new mysql container that uses external persistent volume.
 ```
 docker rm -f mysql
