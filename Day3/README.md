@@ -356,7 +356,7 @@ ubuntu2 | SUCCESS => {
 cd ~/devops-feb-2023
 git pull origin main
 
-cd Day3/ansible/CustomDockerImageForAnsibleNodes
+cd Day3/ansible/CustomDockerImageForAnsibleNodes/centos
 cp ~/.ssh/id_rsa.pub authorized_keys
 docker build -t tektutor/ansible-centos-node:latest .
 docker images
