@@ -1,7 +1,6 @@
 - name: This playbook will install nginx, configures nginx to use a custom web root folder, deploy a custom web page 
   hosts: all
   vars:
-  - greeting_msg: Welcome to DevOps!
   - conf_mgr_tool: Ansible
   - provisioner_tool: Docker
   tasks:
@@ -28,4 +27,3 @@
 
   - name: Deploy our custom web page
     template: src=index.html.j2 dest=/var/html/index.html
-
