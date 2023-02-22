@@ -486,3 +486,30 @@ ansible-playbook -i inventory ping-playbook.yml
 
 Expected output
 ![ping-playbook]()
+
+## How Ansible ad-hoc command works internally
+```
+ansible -i inventory ubuntu1 -m ping
+```
+
+Things to note
+<pre>
+1. Each ansible ad-hoc command can run only one Ansible Module
+2. Windows Ansible modules are Powershell scripts
+3. Unix/Linux/Mac Ansible modules are Python scripts
+4. Wherever we run the ansible-playbook that machine is called Ansible Controller Machine. Ansible is installed only on the ACM not on the Ansible node servers.
+</pe>
+
+What happens internally, when we run an ansible ad-hoc command
+<pre>
+1. On the ACM, ansible creates a temp directory.
+2. Ansible copies the ping.py ansible module to the temp folder on the ACM machine.
+3. Before the ping.py file is copied onto the ubuntu1 ansible nodes, it will paste all ansible specific code imported in the ping.py and creates a self-contained very large python script on the ACM.
+4. Ansible makes a SSH connection to the ubuntu1 ansible node, creates a temp directory on the ubuntu1 ansible node.
+5. Using scp/sftp it copies the transpiled ping.py file from ACM to the ubuntu1 temp folder
+6. Executes the copied ping.py on the ubuntu1 ansible node
+7. Collects the output
+8. Deletes the temp folder and all files it copied on the ubuntu1 ansible node
+9. Disconnects the ssh connection
+10. Gives a summary of execution response on the Ansible Controller machine.
+</pre>
