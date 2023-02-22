@@ -190,6 +190,6 @@ The key's randomart image is:
 cd ~/devops-feb-2023
 git pull origin main 
 
-cd Day3/ansible/CustomDockerImageForAnsibleNodes
+cd Day3/ansible/CustomDockerImageForAnsibleNodes/ubuntu
 cp ~/.ssh/id_rsa.pub authorized_keys
 ```
