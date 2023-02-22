@@ -241,7 +241,7 @@ hello-world                               latest    feb5d9fea6a5   17 months ago
 ubuntu                                    16.04     b6f507652425   18 months ago   135MB
 </pre>
 
-## Let's create two ubuntu containers
+#### Let's create two ubuntu containers
 ```
 docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu-node:latest
 docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu-node:latest
@@ -262,7 +262,7 @@ CONTAINER ID   IMAGE                                 COMMAND               CREAT
 119217305f97   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   24 seconds ago   Up 23 seconds   0.0.0.0:2001->22/tcp, :::2001->22/tcp, 0.0.0.0:8001->80/tcp, :::8001->80/tcp   ubuntu1
 </pre>
 
-## Testing if the the container meets the Ansible requirements
+#### Testing if the the container meets the Ansible requirements
 ```
 ssh -p 2001 root@localhost
 ssh -p 2002 root@localhost
