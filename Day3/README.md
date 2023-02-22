@@ -151,3 +151,36 @@ You can download the Ubuntu .deb package from your web browser at this url https
 cd ~/Downloads
 sudo apt install -y ./code_1.75.1-1675893397_amd64.deb
 ```
+
+## Generating key pair for your rps user
+Press enter key 3 times to accept the defaults.
+
+```
+ssh-keygen
+```
+
+Expected output
+<pre>
+ jegan@tektutor.org $ <b>ssh-keygen</b>
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/jegan/.ssh/id_rsa): 
+Created directory '/home/jegan/.ssh'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/jegan/.ssh/id_rsa
+Your public key has been saved in /home/jegan/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:MA4+EJhvU7FJvZWiCWIPbCnHV3x4DrJTUizTf9lo3pg jegan@tektutor.org
+The key's randomart image is:
++---[RSA 3072]----+
+|.+o oOo. .       |
+|=*+oBoX =        |
+|+++++XoX   +     |
+|  ++=o.oo = .    |
+| . .o.. S+ +     |
+|     .    E .    |
+|                 |
+|                 |
+|                 |
++----[SHA256]-----+
+</pre>
