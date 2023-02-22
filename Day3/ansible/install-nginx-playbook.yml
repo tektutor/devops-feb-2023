@@ -4,3 +4,17 @@
   - name: Install nginx web server into ubuntu ansible nodes
     when: ansible_distribution == "Ubuntu" and ansible_os_family == "Debian"
     apt: name=nginx state=latest update_cache=yes
+
+  - name: Create the custom web root folder that would serve the html web pages
+    file: path=/var/html state=directory mode=0755
+      
+  - name: Configure the nginx to pick the html page from our custom folder
+    when: ansible_distribution == "Ubuntu" and ansible_os_family == "Debian"
+    copy: src=default dest=/etc/nginx/sites-available/default
+
+  - name: Restart nginx server to apply the config changes
+    shell: service nginx restart
+
+  - name: Deploy our custom web page
+    copy: src=index.html dest=/var/html/index.html
+
