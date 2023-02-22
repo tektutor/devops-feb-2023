@@ -60,7 +60,7 @@ In my case the path is
 </pre>
 
 You need to modify the settings.xml as shown below
-````
+```
  <servers>
     <server>
       <id>artifactory</id>
