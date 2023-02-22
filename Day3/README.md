@@ -398,3 +398,79 @@ Warning: Permanently added '[localhost]:2004' (RSA) to the list of known hosts.
 logout
 Connection to localhost closed.
 </pre>
+
+## Checking if centos nodes are reachable using ansible ping module
+```
+cd ~/devops-feb-2023
+git pull origin main
+
+cd Day3/ansible
+ansible -i inventory all -m ping
+ansible -i inventory dev -m ping
+anisble -i inventory qa -m ping
+```
+
+Expected output
+<pre>
+jegan@tektutor.org $ <b>ansible -i inventory all -m ping</b>
+ubuntu1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+centos2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+centos1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+
+ jegan@tektutor.org $ <b>ansible -i inventory dev -m ping</b>
+ubuntu1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+
+ jegan@tektutor.org $ <b>ansible -i inventory qa -m ping</b>
+centos1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+centos2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+</pre>
