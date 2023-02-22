@@ -45,7 +45,7 @@ Let's create a new mysql container that uses external persistent volume.
 docker rm -f mysql
 mkdir -p /tmp/mysql
 chmod 777 /tmp/mysql
-docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 -v tmp/mysql:/bitnami/mysql/data bitnami/mysql:latest
+docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 -v /tmp/mysql:/bitnami/mysql/data bitnami/mysql:latest
 docker ps
 docker exec -it mysql sh
 
@@ -64,7 +64,7 @@ docker rm -f mysql
 
 Let's recreate another new mysql container mounting the exact same external volume path
 ```
-docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 -v tmp/mysql:/bitnami/mysql/data bitnami/mysql:latest
+docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 -v /tmp/mysql:/bitnami/mysql/data bitnami/mysql:latest
 docker ps
 docker exec -it mysql sh
 mysql -u root -p
