@@ -184,3 +184,12 @@ The key's randomart image is:
 |                 |
 +----[SHA256]-----+
 </pre>
+
+## Copying your public key into the ubuntu docker image folder
+```
+cd ~/devops-feb-2023
+git pull origin main 
+
+cd Day3/ansible/CustomDockerImageForAnsibleNodes
+cp ~/.ssh/id_rsa.pub authorized_keys
+```
