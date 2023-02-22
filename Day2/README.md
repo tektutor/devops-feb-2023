@@ -258,6 +258,9 @@ Processors
 - a running instance of a Docker Image
 - each running container gets a unique name, id and IP address
 
+## Docker Image - Container Relationship
+![Docker Image-Container Relationship](DockerImageLayers.png)
+
 # Docker Commands
 
 ## Finding the docker version
