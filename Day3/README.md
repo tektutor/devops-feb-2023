@@ -261,3 +261,59 @@ CONTAINER ID   IMAGE                                 COMMAND               CREAT
 1f2507eaae6a   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   10 seconds ago   Up 10 seconds   0.0.0.0:2002->22/tcp, :::2002->22/tcp, 0.0.0.0:8002->80/tcp, :::8002->80/tcp   ubuntu2
 119217305f97   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   24 seconds ago   Up 23 seconds   0.0.0.0:2001->22/tcp, :::2001->22/tcp, 0.0.0.0:8001->80/tcp, :::8001->80/tcp   ubuntu1
 </pre>
+
+## Testing if the the container meets the Ansible requirements
+```
+ssh -p 2001 root@localhost
+ssh -p 2002 root@localhost
+```
+
+Expected output
+<pre>
+jegan@tektutor.org $ <b>ssh -p 2001 root@localhost</b>
+The authenticity of host '[localhost]:2001 ([::1]:2001)' can't be established.
+ED25519 key fingerprint is SHA256:CxM/CGz174Qp2ZY5ZYNUwAWy7+nXxvKy+9z3U+b4QLo.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? <b>yes</b>
+Warning: Permanently added '[localhost]:2001' (ED25519) to the list of known hosts.
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 6.0.7-301.fc37.x86_64 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@ubuntu1:~# <b>exit</b>
+logout
+Connection to localhost closed.
+
+jegan@tektutor.org $ <b>ssh -p 2002 root@localhost</b>
+The authenticity of host '[localhost]:2002 ([::1]:2002)' can't be established.
+ED25519 key fingerprint is SHA256:CxM/CGz174Qp2ZY5ZYNUwAWy7+nXxvKy+9z3U+b4QLo.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:1: [localhost]:2001
+Are you sure you want to continue connecting (yes/no/[fingerprint])? <b>yes</b>
+Warning: Permanently added '[localhost]:2002' (ED25519) to the list of known hosts.
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 6.0.7-301.fc37.x86_64 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@ubuntu2:~# <b>exit</b>
+logout
+Connection to localhost closed.
+</pre>
