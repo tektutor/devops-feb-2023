@@ -484,3 +484,5 @@ cd Day3/ansible
 ansible-playbook -i inventory ping-playbook.yml
 ```
 
+Expected output
+![ping-playbook]()
