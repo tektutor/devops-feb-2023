@@ -848,4 +848,8 @@ docker ps
 Accessing the Load Balancer
 ```
 curl http://localhost:8080
+curl http://localhost:8080
+curl http://localhost:8080
 ```
+
+Each time you curl the above url, it is supposed to forward the calls to difference nginx container in a round robin fashion.  At times, curl doesn't do the round-robin, in that case, you may try the localhost:8080 url from your RPS ubuntu machine web browser.
