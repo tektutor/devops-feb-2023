@@ -141,5 +141,5 @@ In the above exercise, you would have learned that storing the data to an extern
   
 - Salt/SaltStack
 ## Ansible High Level Architecture
-
+![Ansible Architecture](AnsibleHighLevelArchitecture.png)
 
