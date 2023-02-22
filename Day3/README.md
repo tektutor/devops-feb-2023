@@ -193,3 +193,50 @@ git pull origin main
 cd Day3/ansible/CustomDockerImageForAnsibleNodes/ubuntu
 cp ~/.ssh/id_rsa.pub authorized_keys
 ```
+
+## Building your custom ansible ubuntu node image
+```
+cd ~/devops-feb-2023
+git pull origin main 
+
+cd Day3/ansible/CustomDockerImageForAnsibleNodes/ubuntu
+
+docker build -t tektutor/ansible-ubuntu-node:latest .
+```
+
+Expected output
+<pre>
+jegan@tektutor.org $ <b>docker build -t tektutor/ansible-ubuntu-node:latest .</b>
+[+] Building 29.6s (13/13) FINISHED                                                                                                     
+ => [internal] load .dockerignore                                                                                                  0.0s
+ => => transferring context: 2B                                                                                                    0.0s
+ => [internal] load build definition from Dockerfile                                                                               0.0s
+ => => transferring dockerfile: 671B                                                                                               0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:16.04                                                                    0.0s
+ => CACHED [1/8] FROM docker.io/library/ubuntu:16.04                                                                               0.0s
+ => [internal] load build context                                                                                                  0.0s
+ => => transferring context: 675B                                                                                                  0.0s
+ => [2/8] RUN apt-get update && apt-get install -y openssh-server python3                                                         26.8s
+ => [3/8] RUN mkdir -p /var/run/sshd                                                                                               0.4s 
+ => [4/8] RUN echo 'root:root' | chpasswd                                                                                          0.4s 
+ => [5/8] RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config                               0.4s 
+ => [6/8] RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd                   0.3s 
+ => [7/8] RUN mkdir -p /root/.ssh                                                                                                  0.4s 
+ => [8/8] COPY authorized_keys /root/.ssh/authorized_keys                                                                          0.1s 
+ => exporting to image                                                                                                             0.8s
+ => => exporting layers                                                                                                            0.8s
+ => => writing image sha256:f5d874a691226f400007478ba2e4042631e19fbad4fb0aa17d243603228add11                                       0.0s
+ => => naming to docker.io/tektutor/ansible-ubuntu-node:latest                                                                     0.0s
+ 
+jegan@tektutor.org $ <b>docker images</b>
+REPOSITORY                                TAG       IMAGE ID       CREATED         SIZE
+<b>tektutor/ansible-ubuntu-node              latest    f5d874a69122   7 seconds ago   220MB</b>
+tektutor/gedit                            latest    2feb50bfbc49   20 hours ago    678MB
+tektutor/ubuntu                           latest    e8386dde8457   20 hours ago    227MB
+bitnami/mysql                             latest    85ae5eff30c3   23 hours ago    515MB
+docker.bintray.io/jfrog/artifactory-oss   latest    4809cef53f93   10 days ago     1.48GB
+nginx                                     latest    3f8a00f137a0   13 days ago     142MB
+tektutor/spring-ms                        1.0       9175b940f970   6 months ago    481MB
+hello-world                               latest    feb5d9fea6a5   17 months ago   13.3kB
+ubuntu                                    16.04     b6f507652425   18 months ago   135MB
+</pre>
