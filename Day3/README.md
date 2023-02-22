@@ -474,3 +474,13 @@ centos2 | SUCCESS => {
     "ping": "pong"
 }
 </pre>
+
+## Lab - Running your first ansible playbook
+```
+cd ~/devops-feb-2023
+git pull origin main
+
+cd Day3/ansible
+ansible-playbook -i inventory ping-playbook.yml
+```
+
