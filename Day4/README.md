@@ -90,6 +90,11 @@ sudo systemctl status virtnetworkd.service
 https://docs.docker.com/engine/security/rootless/
 </pre>
 
+You may also read these if you want to make your docker securely avoiding its vulnerabilities
+<pre>
+https://docs.docker.com/engine/security/
+</pre>
+
 ## Continuous Integration Build Servers
 - Jenkins is most popular CI/CD Build Server
 - Hudson was first CI/CD tool developed by Koshuge Kawaguchi (Sun Microsystems employee)
