@@ -84,3 +84,17 @@ sudo systemctl status virtnetworkd.service
 - The test cases are written spoken english like language
 - The BDD scenarios can be written in many spoken language
 - Gerkin language
+
+## Continuous Integration Build Servers
+- Jenkins is most popular CI/CD Build Server
+- Hudson was first CI/CD tool developed by Koshuge Kawaguchi (Sun Microsystems employee)
+- Jenkins is fork(branch) from Hudson
+- Jenkins and Hudson both are opensource CI/CD Build Server
+- Jenkins is maintained by Koshuge Kawaguchi, founder of Cloudbees Organization
+- Cloudbees is Enterprise version of Jenkins
+- Alternates to Jenkins/Cloudbees
+  - TeamCity
+  - Bamboo
+  - Microsoft Team Foundation Server (TFS)
+ 
+ 
