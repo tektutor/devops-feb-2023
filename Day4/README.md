@@ -97,4 +97,8 @@ sudo systemctl status virtnetworkd.service
   - Bamboo
   - Microsoft Team Foundation Server (TFS)
  
- 
+ ## Launching Jenkins
+ ```
+ cd ~/Downloads
+ java -jar ./jenkins.war
+ ```
