@@ -85,6 +85,11 @@ sudo systemctl status virtnetworkd.service
 - The BDD scenarios can be written in many spoken language
 - Gerkin language
 
+## Solution to the Docker daemon vulnerabilities
+<pre>
+https://docs.docker.com/engine/security/rootless/
+</pre>
+
 ## Continuous Integration Build Servers
 - Jenkins is most popular CI/CD Build Server
 - Hudson was first CI/CD tool developed by Koshuge Kawaguchi (Sun Microsystems employee)
@@ -154,7 +159,6 @@ This may also be found at: /home/jegan/.jenkins/secrets/initialAdminPassword
  ```
  http://localhost:8080
  ```
-
 
 ### Additional Plugins that needs to be installed
 You may check my medium blog to get step by step instructions here https://medium.com/tektutor/ci-cd-with-maven-github-docker-jenkins-aca28c252fec
