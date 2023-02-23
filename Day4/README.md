@@ -97,12 +97,59 @@ sudo systemctl status virtnetworkd.service
   - Bamboo
   - Microsoft Team Foundation Server (TFS)
  
- ## Launching Jenkins
- ```
- cd ~/Downloads
- java -jar ./jenkins.war
- ```
- 
+## Launching Jenkins
+```
+cd ~/Downloads
+java -jar ./jenkins.war
+```
+Expected output
+<pre>
+jegan@tektutor.org  ~/Downloads  java -jar ./jenkins.war 
+Running from: /home/jegan/Downloads/jenkins.war
+webroot: $user.home/.jenkins
+2023-02-23 08:23:15.578+0000 [id=1]	INFO	winstone.Logger#logInternal: Beginning extraction from war file
+2023-02-23 08:23:16.509+0000 [id=1]	WARNING	o.e.j.s.handler.ContextHandler#setContextPath: Empty contextPath
+2023-02-23 08:23:16.564+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: jetty-10.0.12; built: 2022-09-14T01:54:40.076Z; git: 408d0139887e27a57b54ed52e2d92a36731a7e88; jvm 17.0.6+10
+2023-02-23 08:23:16.804+0000 [id=1]	INFO	o.e.j.w.StandardDescriptorProcessor#visitServlet: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2023-02-23 08:23:16.856+0000 [id=1]	INFO	o.e.j.s.s.DefaultSessionIdManager#doStart: Session workerName=node0
+2023-02-23 08:23:17.226+0000 [id=1]	INFO	hudson.WebAppMain#contextInitialized: Jenkins home directory: /home/jegan/.jenkins found at: $user.home/.jenkins
+2023-02-23 08:23:17.367+0000 [id=1]	INFO	o.e.j.s.handler.ContextHandler#doStart: Started w.@73ad4ecc{Jenkins v2.375.3,/,file:///home/jegan/.jenkins/war/,AVAILABLE}{/home/jegan/.jenkins/war}
+2023-02-23 08:23:17.390+0000 [id=1]	INFO	o.e.j.server.AbstractConnector#doStart: Started ServerConnector@1d483de4{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2023-02-23 08:23:17.404+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: Started Server@48d61b48{STARTING}[10.0.12,sto=0] @2222ms
+2023-02-23 08:23:17.405+0000 [id=47]	INFO	winstone.Logger#logInternal: Winstone Servlet Engine running: controlPort=disabled
+2023-02-23 08:23:17.552+0000 [id=53]	INFO	jenkins.InitReactorRunner$1#onAttained: Started initialization
+2023-02-23 08:23:17.558+0000 [id=72]	INFO	jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+2023-02-23 08:23:18.175+0000 [id=81]	INFO	jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+2023-02-23 08:23:18.181+0000 [id=90]	INFO	jenkins.InitReactorRunner$1#onAttained: Started all plugins
+2023-02-23 08:23:18.189+0000 [id=98]	INFO	jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+2023-02-23 08:23:18.355+0000 [id=118]	INFO	jenkins.InitReactorRunner$1#onAttained: System config loaded
+2023-02-23 08:23:18.358+0000 [id=122]	INFO	jenkins.InitReactorRunner$1#onAttained: System config adapted
+2023-02-23 08:23:18.359+0000 [id=127]	INFO	jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+2023-02-23 08:23:18.362+0000 [id=134]	INFO	jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
+2023-02-23 08:23:18.387+0000 [id=153]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-02-23 08:23:18.689+0000 [id=138]	INFO	jenkins.install.SetupWizard#init: 
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+a5eaf1d12b06470392c659c5fa96568c
+
+This may also be found at: /home/jegan/.jenkins/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+2023-02-23 08:23:30.922+0000 [id=158]	INFO	jenkins.InitReactorRunner$1#onAttained: Completed initialization
+2023-02-23 08:23:30.938+0000 [id=37]	INFO	hudson.lifecycle.Lifecycle#onReady: <b>Jenkins is fully up and running</b>
+2023-02-23 08:23:32.019+0000 [id=153]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+2023-02-23 08:23:32.020+0000 [id=153]	INFO	hudson.util.Retrier#start: Performed the action check updates server successfully at the attempt #1
+</pre>
+
  ### Accessing Jenkins webpage from chrome web browser on RPS Ubuntu machine
  ```
  http://localhost:8080
