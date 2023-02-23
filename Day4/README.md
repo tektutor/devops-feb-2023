@@ -157,6 +157,8 @@ This may also be found at: /home/jegan/.jenkins/secrets/initialAdminPassword
 
 
 ### Additional Plugins that needs to be installed
+Navigate to Manage Jenkins ==> Manage Plugins ==> Available 
+
 <pre>
 1. Docker
 2. Maven Integration
