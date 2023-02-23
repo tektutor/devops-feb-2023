@@ -102,3 +102,8 @@ sudo systemctl status virtnetworkd.service
  cd ~/Downloads
  java -jar ./jenkins.war
  ```
+ 
+ ### Accessing Jenkins webpage from chrome web browser on RPS Ubuntu machine
+ ```
+ http://localhost:8080
+ ```
