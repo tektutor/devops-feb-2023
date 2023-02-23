@@ -47,8 +47,6 @@ sudo systemctl start virtnetworkd.service
 sudo systemctl status virtnetworkd.service
 ```
 
-
-
 ## What is Agile?
 - fail-fast approach
 - we need frequent feedbacks from customer
@@ -63,9 +61,13 @@ sudo systemctl status virtnetworkd.service
 - the automated will compile and run all the automated test cases and sends the build and test report to the team via email
 - the build and test report we receive from Jenkins is the feedback
 
-## What is Continuous Deployment (CD) ?
-
 ## What is Continuous Delivery (CD) ?
+- an extension of Continuous Integration
+- it deploys the tested binaries automatically to testing/staging/pre-production environments for further automated testing
+
+## What is Continuous Deployment (CD) ?
+- an extension of Continuous Delivery (CD)
+- if your product binary passes all stages of your production pipeline and it is automatically released to customers or it make the binary live in production
 
 ## What is TDD?
 - Test Driven Development
@@ -75,6 +77,10 @@ sudo systemctl status virtnetworkd.service
 - Then see the test passing
 - Write another test case to verify yet another scenario and continue this process
 - TDD test cases usually only target unit and integration testing
-
+- TDD Test cases are more technical,in the sense the business folks may not understand these test case 
 
 ## What is BDD?
+- Behavior Driven Development
+- The test cases are written spoken english like language
+- The BDD scenarios can be written in many spoken language
+- Gerkin language
