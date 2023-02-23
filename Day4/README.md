@@ -154,3 +154,13 @@ This may also be found at: /home/jegan/.jenkins/secrets/initialAdminPassword
  ```
  http://localhost:8080
  ```
+
+
+### Additional Plugins that needs to be installed
+<pre>
+1. Docker
+2. Maven Integration
+3. Build Pipeline
+4. Ansible
+5. Ansible Tower (optional)
+</pre>
