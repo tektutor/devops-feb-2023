@@ -25,7 +25,7 @@ ls
 - they wanted a better build tool which fixes all the issues they found in Ant and that's how Maven opensource project started
 
 ## What is Maven
-- a build tool used predominantly by Java projects
+- a build tool used pre-dominantly by Java projects
 - it is a language agnostic(independent) build tool
 - it was developed by Apache Foundation as an alternate to Apache Ant build tool
 - it is an opensource tool
