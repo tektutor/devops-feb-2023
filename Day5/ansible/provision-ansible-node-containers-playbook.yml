@@ -1,0 +1,44 @@
+- name: This playbook will provisioner ansible node containers
+  hosts: localhost
+  become: yes
+  tasks:
+  - name: Install pip3 in Ubuntu
+    when: ansible_os_family == "Ubuntu"
+    apt: name=python3-pip state=latest
+
+  - name: Install pip3 in Fedora,CentOS/RHEL 
+    when: ansible_os_family == "RedHat"
+    yum: name=python3-pip state=latest
+
+  - name: Install Docker Python SDK
+    shell: pip install docker-py
+
+  - name: Remove any existing ubuntu ansible node containers
+    shell: docker rm -f $(docker ps -aq -f name=ubuntu)
+    ignore_errors: yes
+
+  - name: Remove any existing centos ansible node containers
+    shell: docker rm -f $(docker ps -aq -f name=centos)
+    ignore_errors: yes
+
+  - name: Provision ubuntu ansible node containers
+    docker_container:
+      name: "ubuntu-{{item}}"
+      hostname: "ubuntu-{{item}}"
+      image: "tektutor/ansible-ubuntu-node:latest"
+      state: started 
+      ports:
+      - "2{{item}}:22"
+      - "8{{item}}:80"
+    with_sequence: start=1 end=2 format="%03d" 
+
+  - name: Provision centos ansible node containers
+    docker_container:
+      name: "centos-{{item}}"
+      hostname: "centos-{{item}}"
+      image: "tektutor/ansible-centos-node:latest"
+      state: started 
+      ports:
+      - "3{{item}}:22"
+      - "9{{item}}:80"
+    with_sequence: start=1 end=2 format="%03d" 
