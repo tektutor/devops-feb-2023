@@ -33,7 +33,7 @@ http://localhost:9090
 ![Prometheus Dashboard](prometheus-dashboard.png)
 
 
-## Lab - Starting Grafana as a Docker container
+#### Lab - Starting Grafana as a Docker container
 ```
 docker run -d --name grafana --network host bitnami/grafana:latest
 docker ps
@@ -71,13 +71,13 @@ password - Admin@123
 
 ![Grafana Dashboard](grafana-dashboard.png)
 
-## Installing Prometheus Metrics Plugin in Jenkins
+#### Installing Prometheus Metrics Plugin in Jenkins
 ![Prometheus Jenkins Plugin](jenkins-prometheus-plugin.png)
 
-## Testing if Prometheus Jenkins Plugin is able to collect and expose the metrics
+#### Testing if Prometheus Jenkins Plugin is able to collect and expose the metrics
 ![Testing Prometheus Jenkins Plugin](jenkins-prometheus-metrics.png)
 
-## Configuring prometheus to collect Jenkins metrics
+#### Configuring prometheus to collect Jenkins metrics
 ```
 cd ~/devops-feb-2023
 git pull origin main
