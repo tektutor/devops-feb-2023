@@ -30,3 +30,5 @@ Accessing the Prometheus Dashboard on your RPS Ubuntu machine chrome web browser
 http://localhost:9090
 ```
 
+![Prometheus Dashboard](prometheus-dashboard.png)
+
