@@ -146,3 +146,5 @@ CONTAINER ID   IMAGE                       COMMAND                  CREATED     
 We need to add a Datasource in Grafana Dashboard as shown below
 ![Prometheus Datasource](grafana-datasource.png)
 
+You need to type the url http://localhost:9090 and click on Save and Test.
+
