@@ -70,3 +70,6 @@ password - Admin@123
 </pre>
 
 ![Grafana Dashboard](grafana-dashboard.png)
+
+## Installing Prometheus Metrics Plugin in Jenkins
+![Prometheus Jenkins Plugin](jenkins-prometheus-plugin.png)
