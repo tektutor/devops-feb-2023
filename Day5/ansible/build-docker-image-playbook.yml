@@ -1,6 +1,5 @@
 - name: This playbook will build the ansible node custom docker images
   hosts: localhost
-  become: yes
   gather_facts: no
   vars:
   - image_names:
