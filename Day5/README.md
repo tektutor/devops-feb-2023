@@ -83,14 +83,42 @@ cd ~/devops-feb-2023
 git pull origin main
 
 cd Day5/prometheus
-docker cp prometheus-node1://opt/bitnami/prometheus/conf/prometheus.yml .
+docker cp prometheus-node1:/opt/bitnami/prometheus/conf/prometheus.yml .
 ```
 
 Expected output
 <pre>
 jegan@tektutor.org $ cd ~/devops-feb-2023/Day5/prometheus
 
-jegan@tektutor.org $ docker cp prometheus-node1://opt/bitnami/prometheus/conf/prometheus.yml .
+jegan@tektutor.org $ docker cp prometheus-node1:/opt/bitnami/prometheus/conf/prometheus.yml .
 Preparing to copy...
 Successfully copied 2.56kB to /home/jegan/devops-feb-2023/Day5/prometheus/.
 </pre>
+
+
+Add a new target in the prometheus.yml as shown below
+<pre>
+  - job_name: "jenkins"
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    metrics_path: "/prometheus"
+
+    static_configs:
+      - targets: ["localhost:8080"]
+</pre>
+
+Let's copy the prometheus.yml back into the prometheus container
+```
+cd ~/devops-feb-2023
+git pull origin main
+
+cd Day5/prometheus
+docker cp prometheus.yml prometheus-node1:/opt/bitnami/prometheus/conf/prometheus.yml
+docker restart prometheus-node1
+docker ps
+```
+
+Expected output
+<pre>
+
