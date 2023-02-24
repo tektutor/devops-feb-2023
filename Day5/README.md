@@ -73,3 +73,6 @@ password - Admin@123
 
 ## Installing Prometheus Metrics Plugin in Jenkins
 ![Prometheus Jenkins Plugin](jenkins-prometheus-plugin.png)
+
+## Testing if Prometheus Jenkins Plugin is able to collect and expose the metrics
+![Testing Prometheus Jenkins Plugin](jenkins-protheus-metrics.png)
