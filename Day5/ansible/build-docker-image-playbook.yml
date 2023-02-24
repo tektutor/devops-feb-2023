@@ -1,7 +1,6 @@
 - name: This playbook will build the ansible node custom docker images
   hosts: localhost
   become: yes
-
   vars:
   - image_names:
     - tektutor/ansible-ubuntu-node:latest
