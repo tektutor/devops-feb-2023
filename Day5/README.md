@@ -166,7 +166,7 @@ Launch the sonar web page from your chrome browser
 http://localhost:9000
 ```
 
-Create a project manually and select local, give a name for your project 'tektutor'. Select maven and you will get the below instructions
+Create a project manually and select local, give your name for your project 'jegan'.   Select maven and you will get the below instructions
 <pre>
 mvn clean verify sonar:sonar \
   -Dsonar.projectKey=jegan \
