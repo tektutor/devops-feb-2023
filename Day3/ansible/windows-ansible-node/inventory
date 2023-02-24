@@ -1,2 +1,11 @@
-[all]
-10.0.2.15 ansible_user=Administrator ansible_password=root@123 ansible_connection=winrm ansible_winrm_server_cert_valiation=ignore ansible_winrm_transport=basic
+[windows]
+192.168.124.4
+
+[windows:vars]
+ansible_port=5985 
+ansible_user=Administrator 
+ansible_password=root@123 
+ansible_connection=winrm 
+ansible_winrm_server_cert_validation=ignore 
+ansible_winrm_transport=basic 
+ansible_winrm_scheme=http

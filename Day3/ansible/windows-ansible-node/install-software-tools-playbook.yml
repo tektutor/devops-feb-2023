@@ -1,0 +1,24 @@
+- name: This playbook will install notepadd++ on Windows 2019 Server
+  hosts: all
+  tasks:
+  - name: Install notepad plus plus
+    win_chocolatey:
+      name: notepadplusplus
+      state: latest
+
+  - name: Install Adobe Acrobat Reader
+    win_chocolatey:
+      name: adobereader
+      state: latest
+
+  - name: Download Python
+    win_get_url:
+      url: https://www.python.org/ftp/python/3.10.6/python-3.10.6.exe
+      dest: C:\python-3.10.6.exe
+
+  - name: Install Python
+    win_package:
+      path: C:\python-3.10.6.exe
+      state: present
+      arguments:
+      - '/quiet'
