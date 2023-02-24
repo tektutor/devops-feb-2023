@@ -68,3 +68,5 @@ After first login, I changed the password to below credentials
 username - admin
 password - Admin@123
 </pre>
+
+![Grafana Dashboard](grafana-dashboard.png)
