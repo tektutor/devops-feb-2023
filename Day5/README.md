@@ -75,4 +75,4 @@ password - Admin@123
 ![Prometheus Jenkins Plugin](jenkins-prometheus-plugin.png)
 
 ## Testing if Prometheus Jenkins Plugin is able to collect and expose the metrics
-![Testing Prometheus Jenkins Plugin](jenkins-protheus-metrics.png)
+![Testing Prometheus Jenkins Plugin](jenkins-prometheus-metrics.png)
