@@ -121,4 +121,23 @@ docker ps
 
 Expected output
 <pre>
+jegan@tektutor.org $ <b>docker cp prometheus.yml prometheus-node1://opt/bitnami/prometheus/conf/prometheus.yml</b>
+Preparing to copy...
+Copying to container - 0B
+Copying to container - 0B
+Copying to container - 512B
+Copying to container - 1.638kB
+Copying to container - 2.048kB
+Copying to container - 2.56kB
+Copying to container - 3.072kB
+Successfully copied 3.072kB to prometheus-node1://opt/bitnami/prometheus/conf/prometheus.yml
+
+jegan@tektutor.org $ <b>docker restart prometheus-node1</b>
+prometheus-node1
+
+jegan@tektutor.org $ <b>docker ps</b>
+CONTAINER ID   IMAGE                       COMMAND                  CREATED          STATUS          PORTS                                   NAMES
+9ddd5dd0307c   bitnami/grafana:latest      "/opt/bitnami/script…"   36 minutes ago   Up 36 minutes                                           grafana
+3cbd4d672121   bitnami/prometheus:latest   "/opt/bitnami/promet…"   43 minutes ago   Up 8 seconds                                            prometheus-node1
+</pre>
 
