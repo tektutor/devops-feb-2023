@@ -148,3 +148,5 @@ We need to add a Datasource in Grafana Dashboard as shown below
 
 You need to type the url http://localhost:9090 and click on Save and Test.
 
+
+In the Grafana databoard, you can go to the Dashboard ==> Import and type 9964 in the ID and select Prometheus as the Datasource.  If all went well, you should be able to see the Jenkins metrics plotted in the Grafana Dashboard.
