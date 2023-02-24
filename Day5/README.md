@@ -150,3 +150,18 @@ You need to type the url http://localhost:9090 and click on Save and Test.
 
 
 In the Grafana databoard, you can go to the Dashboard ==> Import and type 9964 in the ID and select Prometheus as the Datasource.  If all went well, you should be able to see the Jenkins metrics plotted in the Grafana Dashboard.
+
+
+## Lab - Creating a DevOps Pipeline in Jenkins
+
+
+
+## Post Test link
+<pre>
+https://app.mymapit.in/code4/tiny/ZMsoFk
+</pre>
+
+## Feedback link
+<pre>
+https://tcheck.co/2HK8m6
+</pre>
