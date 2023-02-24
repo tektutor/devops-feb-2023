@@ -5,8 +5,6 @@
   - image_names:
     - tektutor/ansible-ubuntu-node:latest
     - tektutor/ansible-centos-node:latest
-  vars_files:
-  - become-password.yml 
   tasks:
   - name: Delete all ansible node containers 
     shell: docker rm -f $(docker ps -aq --filter="name=ubuntu" --filter="name=centos")
