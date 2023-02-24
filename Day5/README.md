@@ -141,3 +141,8 @@ CONTAINER ID   IMAGE                       COMMAND                  CREATED     
 3cbd4d672121   bitnami/prometheus:latest   "/opt/bitnami/promet…"   43 minutes ago   Up 8 seconds                                            prometheus-node1
 </pre>
 
+#### Integrating Prometheus with Grafana
+
+We need to add a Datasource in Grafana Dashboard as shown below
+![Prometheus Datasource](grafana-datasource.png)
+
