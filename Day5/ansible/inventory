@@ -8,3 +8,5 @@ centos2 ansible_port=3002
 ansible_user=root
 ansible_host=localhost
 ansible_private_key_file=~/.ssh/id_rsa
+ansible_become_user=root
+ansible_become_password=root
