@@ -156,6 +156,26 @@ In the Grafana databoard, you can go to the Dashboard ==> Import and type 9964 i
 
 
 
+## Lab - Setup a SonarQube Server as a container
+```
+docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest
+```
+
+Launch the sonar web page from your chrome browser
+```
+http://localhost:9000
+```
+
+Create a project manually and select local, give a name for your project 'tektutor'. Select maven and you will get the below instructions
+<pre>
+mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=jegan \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=sqp_d872cb04cfa27d814c64308cb749f304de4685c5
+</pre>
+
+You could now use the above command in your Jenkins job to perform static-code analysis using SonarQube.
+
 ## Post Test link
 <pre>
 https://app.mymapit.in/code4/tiny/ZMsoFk
